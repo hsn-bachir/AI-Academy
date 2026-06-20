@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Data Science" />
+    <title>Data Science</title>
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/pages.css">
+    <script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Chapter II</h1>
+        <nav>
+            <ul>
+                <li><a href="chp1.html">&lt; Previous </a></li>
+                <li><a href="chp3.html">Next &gt;</a></li>
+            </ul>
+        </nav>
+        <style>
+            .section {
+                margin-left: 5px;
+            }
+        </style>
+    </header>
+
+    <main>
+        <section>
+            <div class="quote">
+                <p><i class="fas fa-quote-left"></i>Big data is not about the data, it's about the insights<i
+                        class="fas fa-quote-right"></i></p>
+                <p>— John Owen</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div id="hamburger" onclick="toggleSidebar()">
+                    &#9776;
+                </div>
+                <nav class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="#course" onclick="showContent('content1');">1. Data mining</a></li>
+                        <li><a href="#course" onclick="showContent('content2');">2. Data cleaning</a></li>
+                        <li><a href="#course" onclick="showContent('content3');">3. Data visualization</a></li>
+                        <li><a href="#course" onclick="showContent('content4');">4. Feature Engineering</a></li>
+                        <li><a href="#course" onclick="showContent('content5');">5. Predictive Modeling</a></li>
+                        <li><a href="#course" onclick="showContent('content6');">6. Quiz</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <div id="content1" class="content-section">
+                        <h2>1. Data mining</h2>
+                        <section class="section">
+                            <p>Data mining is the process of exploring and analyzing large datasets to uncover patterns,
+                                correlations, trends, and other useful information. It involves using algorithms and
+                                statistical methods to find hidden relationships within data that are not immediately
+                                obvious. The insights gained from data mining can help in making informed decisions,
+                                predicting outcomes, and improving processes across various fields.
+                            </p>
+                            <p>Data is gathered from different sources <code>databases, spreadsheets, etc...</code> and
+                                cleaned to ensure it's in a consistent format, free of errors or missing values.<br>
+                                <a href="https://www.kaggle.com" target="_blank"><strong>Kaggle </strong></a> is a
+                                popular
+                                platform for data mining and machine
+                                learning competitions.<br><br>
+                            </p>
+                        </section>
+                        <section class="section">
+                            <h3>Applications of data mining:</h3>
+                            <ul>
+                                <li><strong>Marketing:</strong> Companies use data mining to analyze customer behavior,
+                                    segment their audience, and tailor marketing campaigns. For example, targeted
+                                    advertisements are often based on data mining insights.
+                                </li>
+                                <li>
+                                    <strong>Finance:</strong> Banks and financial institutions use data mining to detect
+                                    fraudulent transactions, assess credit risk, and optimize investment strategies.
+                                </li>
+                                <li>
+                                    <strong>Healthcare:</strong> In healthcare, data mining can predict disease
+                                    outbreaks,
+                                    improve patient outcomes, and streamline hospital operations.
+                                </li>
+                            </ul>
+                        </section>
+                        <section class="section">
+                            <p><br>Data mining is a powerful tool that allows organizations to extract valuable insights
+                                from vast amounts of data. By applying techniques like classification, clustering, and
+                                association rule learning, businesses can make better decisions, predict future trends,
+                                and
+                                uncover hidden patterns that drive success. Throughout the rest of the chapter we will
+                                learn
+                                how to manipulate this data to reach the output we want.
+                            </p>
+                        </section>
+                    </div>
+                    <div id="content2" class="content-section">
+                        <h2>2. Data cleaning</h2>
+                        <section class="section">
+                            <p>Data cleaning, also known as data cleansing or data preprocessing, is a critical step in
+                                the data analysis pipeline that involves identifying and correcting errors,
+                                inconsistencies, and inaccuracies in raw data. The goal is to improve the quality of the
+                                data so that it can be used for accurate analysis, decision-making, and machine
+                                learning.</p>
+                        </section>
+                        <section class="section">
+                            <h3>Key Aspects of Data Cleaning</h3>
+                            <ol>
+                                <li><strong>Handling Missing Data:</strong> One of the most common issues is missing or
+                                    incomplete data. There are several approaches to handle missing values:
+                                    <ul>
+                                        <li><strong>Deletion:</strong> Remove rows or columns with missing values if
+                                            they
+                                            are not too numerous or important.</li>
+                                        <li><strong>Imputation:</strong> Replace missing values with estimates based on
+                                            the
+                                            rest of the data (mean, median, or mode), or use advanced techniques like
+                                            regression imputation or k-nearest neighbors (KNN) imputation.</li>
+                                        <li><strong>Prediction:</strong> Use machine learning models to predict missing
+                                            values based on other variables.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Removing Duplicates:</strong> Identifying and removing exact or
+                                    near-duplicate
+                                    records to ensure that the dataset is cleaner and more representative.</li>
+                                <li><strong>Correcting Data Inconsistencies:</strong> This includes:
+                                    <ul>
+                                        <li><strong>Standardizing Formats:</strong> Ensuring consistent date formats
+                                            (e.g.,
+                                            MM/DD/YYYY vs. DD/MM/YYYY) or case usage (e.g., "USA" vs. "usa").</li>
+                                        <li><strong>Typographical Errors:</strong> Correcting misspellings or
+                                            inconsistent
+                                            abbreviations (e.g., "NY" vs. "New York").</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Handling Outliers:</strong> Identifying and deciding what to do with
+                                    outliers,
+                                    which are data points that deviate significantly from the rest. Techniques like
+                                    z-scores, box plots, or IQR can be used for detection.</li>
+                                <li><strong>Filtering Noise:</strong> Data may contain random variations or errors that
+                                    do
+                                    not represent meaningful patterns. These can be reduced using smoothing techniques
+                                    or
+                                    removing outliers.</li>
+                                <li><strong>Validating Data Types:</strong> Ensuring each column has the correct data
+                                    type
+                                    (e.g., integers, floats, strings, dates). Misclassified data types can cause errors
+                                    in
+                                    analysis.</li>
+                                <li><strong>Normalization and Standardization:</strong> Transforming features to fall
+                                    within
+                                    a specific range (normalization) or to have a mean of 0 and a standard deviation of
+                                    1
+                                    (standardization).
+                                    <ul>
+                                        <li><strong>Normalization:</strong> Rescaling features to a range, typically [0,
+                                            1].
+                                        </li>
+                                        <li><strong>Standardization:</strong> Adjusting data to have a mean of 0 and
+                                            standard deviation of 1.</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Data Transformation:</strong> Raw data may need to be transformed into more
+                                    useful formats (e.g., aggregation, encoding categorical variables, log
+                                    transformations).
+                                </li>
+                                <li><strong>Dealing with Irrelevant Features:</strong> Removing data columns that are
+                                    irrelevant to the analysis or model, such as "user ID" in an e-commerce dataset.
+                                </li>
+                                <li><strong>Data Integration:</strong> Combining data from different sources may result
+                                    in
+                                    mismatches or conflicts, which need to be resolved for consistency.</li>
+                            </ol>
+                        </section>
+                        <section class="section">
+                            <h3>Tools and Techniques for Data Cleaning</h3>
+                            <p>In this course we will be using pandas for data cleaning:</p>
+                            <ol>
+                                <li>Handling Missing Data
+                                    <p>Missing data is a common issue in real-world datasets. Pandas provides several
+                                        functions to handle missing data:</p>
+                                    <ul>
+                                        <li>
+                                            <strong>Detecting Missing Data:</strong>
+                                            <div class="example">
+                                                <code>df.isnull()  <div class="cmd">#Shows True where data is missing</div></code>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong>Dropping Missing Data:</strong> You can drop rows or columns
+                                            containing
+                                            missing values using <code>dropna()</code>.
+                                            <div class="example">
+                                                <code>df.dropna() <div class="cmd"> # Removes rows with any missing values</div>
+                                             df.dropna(axis=1) <div class="cmd"> # Removes columns with any missing values</div></code>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong>Filling Missing Data:</strong> Use <code>fillna()</code> to replace
+                                            missing values with a specified value or strategy.
+                                            <div class="example">
+                                                <code>df.fillna(0) <div class="cmd"> # Replace missing values with 0</div>
+                                            df['Age'].fillna(df['Age'].mean()) <div class="cmd"> # Fill missing 'Age' with the mean value</div></code>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Removing Duplicates
+                                    <p>To remove duplicate rows from your dataset, you can use the
+                                        <code>drop_duplicates()</code> method:
+                                    </p>
+                                    <div class="example">
+                                        <code>df.drop_duplicates()<br> 
+                                        <div class="cmd"> # Removes completely duplicated rows</div><br><br>
+                                        df.drop_duplicates(subset=['Name'])<br> 
+                                        <div class="cmd"> # Removes duplicates based on the 'Name' column only</div></code>
+                                    </div>
+                                    <p>You can also specify whether to keep the first or last occurrence of the
+                                        duplicate
+                                        using the <code>keep</code> parameter:</p>
+                                    <div class="example">
+                                        <code>df.drop_duplicates(keep='first')<br> 
+                                        <div class="cmd"> # Keep the first occurrence</div><br><br>
+                                        df.drop_duplicates(keep='last')<br> 
+                                        <div class="cmd"> # Keep the last occurrence</div></code>
+                                    </div>
+                                </li>
+                                <li>Handling Inconsistent Data
+                                    <p>Inconsistent data formats or values can be fixed using Pandas string methods and
+                                        custom mappings:</p>
+                                    <ul>
+                                        <li>
+                                            <strong>Standardizing Casing:</strong> Use <code>str.lower()</code> or
+                                            <code>str.upper()</code> to standardize string case.
+                                            <div class="example">
+                                                <code>df['City'] = df['City'].str.lower()<br> 
+                                                <div class="cmd"> # Converts 'City' values to lowercase</div></code>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong>Replacing Values:</strong> Replace specific values or characters
+                                            with
+                                            <code>replace()</code>.
+                                            <div class="example">
+                                                <code>df['City'] = df['City'].replace('new york', 'New York')<br> 
+                                                <div class="cmd"> # Correct case</div></code>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong>Regular Expressions:</strong> Use regular expressions to find and
+                                            replace patterns in strings.
+                                            <div class="example">
+                                                <code>df['Name'] = df['Name'].str.replace(r'[aeiou]', '*', regex=True)<br> 
+                                                <div class="cmd"> # Replace vowels with '*'</div></code>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Converting Data Types
+                                    <p>Sometimes columns may not have the correct data type. Use the
+                                        <code>astype()</code> method to convert data types:
+                                    </p>
+                                    <div class="example">
+                                        <code>df['Age'] = df['Age'].astype(float)<br> 
+                                        <div class="cmd"> # Convert 'Age' column to float</div></code>
+                                    </div>
+                                    <p>For categorical data, you can convert columns to the <code>category</code>
+                                        type to save memory and improve performance:</p>
+                                    <div class="example">
+                                        <code>df['City'] = df['City'].astype('category')<br>
+                                        <div class="cmd"> # Convert 'City' to categorical type</div></code>
+                                    </div>
+                                </li>
+                                <li>Normalizing and Scaling Data
+                                    <p>Scaling or normalizing numerical data is important for machine learning
+                                        models. Use the <code>MinMaxScaler</code> or <code>StandardScaler</code> from
+                                        <code>sklearn.preprocessing</code>:
+                                    </p>
+                                    <ul>
+                                        <li>
+                                            <strong>Normalization (Min-Max Scaling):</strong>
+                                            <div class="example">
+                                                <code>from sklearn.preprocessing import MinMaxScaler<br>
+                                                scaler = MinMaxScaler()<br>
+                                                df['Age'] = scaler.fit_transform(df[['Age']])</code>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <strong>Standardization (Z-Score Scaling):</strong>
+                                            <div class="example">
+                                                <code>from sklearn.preprocessing import StandardScaler<br>
+                                                scaler = StandardScaler()<br>
+                                                df['Age'] = scaler.fit_transform(df[['Age']])</code>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>Renaming Columns
+                                    <p>You can rename columns using the <code>rename()</code> method:</p>
+                                    <div class="example">
+                                        <code>df.rename(columns={'Name': 'Full Name', 'Age': 'Age in Years'}, inplace=True)</code>
+                                    </div>
+                                </li>
+                                <li>Filtering and Selecting Data
+                                    <p>You can filter and select specific rows based on conditions:</p>
+                                    <div class="example">
+                                        <code><div class="cmd"> # Select rows where 'Age' is greater than 25</div><br>
+                                        df[df['Age'] > 25]</code>
+                                    </div>
+                                    <p>For more complex filtering, use the <code>query()</code> method:
+                                    </p>
+                                    <div class="example">
+                                        <code>df.query('Age > 25 and City == "New York"')</code>
+                                    </div>
+                                </li>
+                                <li>Dealing with Categorical Data
+                                    <p>For machine learning models, categorical data should be
+                                        encoded. Use <code>get_dummies()</code> for one-hot encoding:
+                                    </p>
+                                    <div class="example">
+                                        <code>df_encoded = pd.get_dummies(df, columns=['City'])<br>
+                                    <div class="cmd"> # One-hot encode the 'City' column</div></code>
+                                    </div>
+                                    <p>You can also use label encoding to convert categorical
+                                        values into integers:</p>
+                                    <div class="example">
+                                        <code>df['City'] = df['City'].astype('category').cat.codes<br>
+                                   <div class="cmd"># Convert 'City' to category codes</div></code>
+                                    </div>
+                                </li>
+                                <li>Merging and Joining DataFrames
+                                    <p>When working with multiple datasets, use <code>merge()</code> to combine them:
+                                    </p>
+                                    <div class="example">
+                                        <code>df1 = pd.DataFrame({'ID': [1, 2, 3], 'Name': ['Alice', 'Bob', 'Charlie']})<br>
+                                        df2 = pd.DataFrame({'ID': [1, 2, 3], 'City': ['New York', 'Los Angeles', 'Chicago']})<br>
+                                        df_merged = pd.merge(df1, df2, on='ID')  # Merge based on 'ID' column</code>
+                                    </div>
+                                </li>
+                            </ol>
+                        </section>
+                        <section class="section">
+                            <h3>Challenges of Data Cleaning</h3>
+                            <ul>
+                                <li><strong>Time-consuming:</strong> Data cleaning can be tedious, especially for
+                                    large
+                                    datasets.</li>
+                                <li><strong>Data Size:</strong> The larger the dataset, the more challenging
+                                    cleaning
+                                    becomes, often requiring more advanced techniques.</li>
+                                <li><strong>Noise and Inconsistencies:</strong> Errors and inconsistencies can be
+                                    difficult
+                                    to detect and correct, especially with data from multiple sources.</li>
+                                <li><strong>Evolving Data:</strong> Data may change over time, meaning cleaning
+                                    methods
+                                    must
+                                    adapt to new conditions.</li>
+                            </ul>
+                        </section>
+                        <section class="section">
+                            <h3>Why Data Cleaning Is Important</h3>
+                            <ul>
+                                <li><strong>Accuracy:</strong> Clean data ensures valid and trustworthy results.
+                                </li>
+                                <li><strong>Efficiency:</strong> Properly cleaned data reduces the risk of errors,
+                                    saving
+                                    time and resources.</li>
+                                <li><strong>Better Insights:</strong> By addressing inconsistencies, outliers, and
+                                    missing
+                                    values, it's easier to uncover meaningful patterns.</li>
+                                <li><strong>Improved Model Performance:</strong> High-quality data leads to better
+                                    performance in machine learning and statistical models.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content3" class="content-section">
+                        <h2>3. Data visualization & analysis</h2>
+                        <section class="section">
+                            <p>Data visualization and analysis play a crucial role in machine learning (ML) workflows,
+                                helping to understand, interpret, and evaluate data. It provides a means to uncover
+                                hidden
+                                patterns, detect anomalies, and assess the performance of machine learning models.
+                                Below, we
+                                will explore various aspects of data visualization and analysis in ML.</p>
+                        </section>
+                        <section class="section">
+                            <h3>Role of Data Visualization in Machine Learning</h3>
+                            <p>Effective data visualization allows us to:</p>
+                            <ul>
+                                <li><strong>Understand the Data:</strong> Visualize distributions, relationships
+                                    between variables, and characteristics of the data.</li>
+                                <li><strong>Identify Outliers:</strong> Spot any irregularities or outliers in
+                                    the
+                                    data that could affect model performance.</li>
+                                <li><strong>Feature Engineering:</strong> Understand correlations between
+                                    features
+                                    and create new ones based on visual patterns.</li>
+                                <li><strong>Model Performance:</strong> Assess how well a model performs using
+                                    metrics like confusion matrices, ROC curves, etc.</li>
+                            </ul>
+                            <section>
+
+                                <section class="section">
+                                    <h3>Common Techniques for Data Visualization in ML</h3>
+                                    <p>There are several powerful visualization techniques used to explore and
+                                        understand
+                                        machine learning datasets:</p>
+                                    <ul>
+                                        <li><strong>Univariate and Bivariate Visualization:</strong> Visualizing single
+                                            or
+                                            pairwise relationships between features.</li>
+                                        <li><strong>Correlation Matrices:</strong> Heatmaps to show relationships
+                                            between
+                                            features in a dataset.
+                                        </li>
+                                        <li><strong>Dimensionality Reduction:</strong> Techniques like PCA or t-SNE
+                                            reduce
+                                            high-dimensional data to 2D or 3D for visualization.</li>
+                                        <li><strong>Model Evaluation Visualizations:</strong> Confusion matrices, ROC
+                                            curves, and Precision-Recall curves help evaluate model performance.</li>
+                                    </ul>
+                                </section>
+
+                                <section class="section">
+                                    <h3>Tools for Data Visualization in ML</h3>
+                                    <p>There are many libraries and tools available for data visualization in machine
+                                        learning:</p>
+                                    <ul>
+                                        <li><strong>Matplotlib:</strong> A basic plotting library for static, animated,
+                                            and
+                                            interactive plots.</li>
+                                        <li><strong>Seaborn:</strong> Built on top of Matplotlib, Seaborn provides a
+                                            high-level interface for
+                                            statistical plots.</li>
+                                        <li><strong>Plotly:</strong> Used for creating interactive plots, including 3D
+                                            visualizations.</li>
+                                        <li><strong>TensorBoard:</strong> A tool to visualize metrics and model training
+                                            progress in TensorFlow.
+                                        </li>
+                                        <li><strong>Pandas Visualization:</strong> Basic plotting functionality for
+                                            quick
+                                            exploratory data analysis (EDA).</li>
+                                    </ul>
+                                </section>
+
+                                <section class="section">
+                                    <h3>Data Preprocessing and Analysis</h3>
+                                    <p>Before training a machine learning model, data preprocessing is essential. Visual
+                                        analysis during this phase helps to:</p>
+                                    <ul>
+                                        <li><strong>Handle Missing Values:</strong> Identify and address missing data
+                                            points
+                                            using techniques such as imputation or deletion.</li>
+                                        <li><strong>Feature Transformation:</strong> Visualize feature distributions to
+                                            determine if scaling or normalization is needed.</li>
+                                        <li><strong>Feature Selection:</strong> Visual analysis helps identify which
+                                            features are important for the model and which can be discarded.</li>
+                                    </ul>
+                                </section>
+
+                                <section class="section">
+                                    <h3>Example of Data Visualization in ML</h3>
+                                    <p>Here is an example of how data visualization is used with the Iris dataset, a
+                                        popular
+                                        ML dataset:</p>
+
+                                    <div class="example">
+                                        <p>This code demonstrates how to create pair plots to visualize relationships
+                                            between features in the
+                                            Iris dataset using the <code>seaborn</code> library:</p>
+                                        <div class="example">
+                                            <code>import seaborn as sns<br>
+                                        import matplotlib.pyplot as plt<br>
+                                        <div class="cmd"># Load the Iris dataset</div><br><br>
+                                        data = sns.load_dataset('iris')<br>
+                                        <div class="cmd"># Create pairplot to visualize the relationships between features
+                                        sns.pairplot(data, hue='species')<br>
+                                        # Display the plot</div><br><br>
+                                        plt.show()</code>
+                                        </div>
+                                    </div>
+
+                                    <p>This visualization helps in understanding how different features relate to one
+                                        another and how the species of Iris are distributed across those features.</p>
+                                </section>
+
+                                <section class="section">
+                                    <h3>Best Practices for Data Visualization in ML</h3>
+                                    <p>To create effective visualizations in machine learning, follow these best
+                                        practices:
+                                    </p>
+                                    <ul>
+                                        <li><strong>Simplify Visualizations:</strong> Avoid clutter by keeping charts
+                                            simple
+                                            and highlighting key insights.</li>
+                                        <li><strong>Use Color Effectively:</strong> Use color to distinguish different
+                                            categories but ensure accessibility for colorblind users.</li>
+                                        <li><strong>Focus on Key Insights:</strong> Ensure the visualization answers the
+                                            question you're asking about the data.</li>
+                                        <li><strong>Interactive Visualizations:</strong> Use tools like Plotly to create
+                                            interactive graphs thatallow for deeper exploration.</li>
+                                    </ul>
+                                </section>
+                    </div>
+                    <div id="content4" class="content-section">
+                        <h2>4. Feature Engineering</h2>
+                        <section class="section">
+                            <p>Feature engineering is the process of transforming raw data into features that better
+                                represent
+                                the underlying patterns in the data, improving the performance of machine learning
+                                models.
+                                It
+                                involves techniques such as transforming variables, handling missing data, and creating
+                                new
+                                features from existing ones. Good feature engineering can make a significant difference
+                                in
+                                the
+                                success of your model.
+                            </p>
+                        </section>
+                        <section class="section">
+                            <h3>Why is Feature Engineering Important?</h3>
+                            <p>Feature engineering plays a crucial role in machine learning for the following
+                                reasons:
+                            </p>
+                            <ul>
+                                <li><strong>Improves Model Performance:</strong> Well-crafted features can
+                                    drastically
+                                    improve the performance of machine learning models by providing more meaningful
+                                    information
+                                    to the model.</li>
+                                <li><strong>Reduces Overfitting:</strong> By selecting or creating the right
+                                    features,
+                                    you can reduce the chances of your model overfitting the training data.</li>
+                                <li><strong>Enhances Generalization:</strong> Proper feature engineering helps the
+                                    model
+                                    generalize better to new, unseen data.</li>
+                                <li><strong>Increases Model Interpretability:</strong> By selecting or transforming
+                                    features thoughtfully, you can make the model's behavior more interpretable and
+                                    understandable.</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Common Techniques in Feature Engineering</h3>
+                            <p>There are several common techniques used in feature engineering:</p>
+                            <ul>
+                                <li><strong>Feature Selection:</strong> This involves selecting the most important
+                                    features and discarding irrelevant ones. Techniques like
+                                    <code>Correlation Matrix</code> or
+                                    algorithms like <code>Random Forest</code> or <code>LASSO</code> are often used
+                                    to
+                                    identify
+                                    important features.
+                                </li>
+                                <li><strong>Handling Missing Data:</strong> Missing values can be filled with
+                                    various
+                                    strategies like mean, median, mode imputation, or even predictive models.
+                                    Alternatively,
+                                    rows
+                                    with missing values can be removed if appropriate.</li>
+                                <li><strong>Feature Transformation:</strong> This includes scaling (e.g.,
+                                    <code>Standardization</code> and <code>Normalization</code>) or applying
+                                    mathematical
+                                    transformations like <code>log</code> transformations to stabilize variance.
+                                </li>
+                                <li><strong>Encoding Categorical Data:</strong> Categorical variables need to be
+                                    converted into numeric form for machine learning models to process. Common
+                                    methods
+                                    include
+                                    <code>One-Hot Encoding</code>, <code>Label Encoding</code>, and
+                                    <code>Ordinal Encoding</code>.
+                                </li>
+                                <li><strong>Feature Creation:</strong> Creating new features based on existing ones
+                                    can
+                                    provide additional insights. For example, combining multiple features to create
+                                    interaction
+                                    terms or extracting date/time features like hour, day, month from a timestamp.
+                                </li>
+                                <li><strong>Dimensionality Reduction:</strong> Techniques like
+                                    <code>PCA (Principal Component Analysis)</code> or <code>t-SNE</code> can be
+                                    used to
+                                    reduce the number of features while preserving important information.
+                                </li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Example of Feature Engineering</h3>
+                            <p>Below is an example of feature engineering applied to a dataset, where we perform
+                                feature scaling and create a new feature:</p>
+                            <p>In this example, we use <code>pandas</code> and <code>scikit-learn</code> to
+                                scale features and create an interaction feature:</p>
+                            <div class="example">
+                                <code>import pandas as pd
+                                        from sklearn.preprocessing import StandardScaler<br>
+                                        <div class="cmd"># Sample dataset</div><br><br>
+                                        data = pd.DataFrame({<br>
+                                        'age': [25, 32, 47, 54, 23],<br>
+                                        'income': [50000, 80000, 120000, 95000, 45000]<br>
+                                        })<br><br>
+                                        <div class="cmd"># Feature scaling</div><br>
+                                        scaler = StandardScaler()<br>
+                                        data[['age', 'income']] = scaler.fit_transform(data[['age', 'income']])<br><br>
+                                        <div class="cmd"># Create a new feature 'age_income_interaction' by multiplying 'age' and 'income'</div><br>
+                                        data['age_income_interaction'] = data['age'] * data['income']<br><br>
+                                        <div class="cmd"># Display the transformed dataset</div><br>
+                                        print(data)</code>
+                            </div>
+
+                            <p>This example scales the numerical features <code>age</code> and
+                                <code>income</code>, and creates a new feature called
+                                <code>age_income_interaction</code> by multiplying
+                                <code>age</code> and <code>income</code>. This new feature may help capture
+                                interactions between the two original features.
+                            </p>
+                        </section>
+
+                        <section class="section">
+                            <h3>Best Practices for Feature Engineering</h3>
+                            <p>To ensure successful feature engineering, consider the following best practices:</p>
+                            <ul>
+                                <li><strong>Understand the Data:</strong> Thoroughly analyze the dataset and domain
+                                    to identify potential features that are useful for the model.</li>
+                                <li><strong>Experiment with Different Techniques:</strong> Feature engineering is an
+                                    iterative process. Try different transformations, interactions, and combinations
+                                    to see what works best for your model.
+                                </li>
+                                <li><strong>Avoid Data Leakage:</strong> When creating new features, ensure that
+                                    they do not inadvertently introduce data from the test set, which can lead to
+                                    overfitting.</li>
+                                <li><strong>Test with Different Models:</strong> The effectiveness of features can
+                                    vary depending on the machine learning algorithm used. Test features with
+                                    different models to evaluate their performance.
+                                </li>
+                                <li><strong>Keep It Simple:</strong> While feature engineering can add complexity,
+                                    avoid making the model overly complex with unnecessary features. Focus on adding
+                                    value rather than adding noise.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content5" class="content-section">
+                        <h2>5. Predictive Modeling</h2>
+                        <section class="section">
+                            <p>Predictive modeling is a core component of machine learning, where the goal is to use
+                                data to predict outcomes. It involves creating, testing, and validating models that can
+                                predict future values or classify data into different categories. This process relies on
+                                historical data to identify patterns and make predictions about new, unseen data.</p>
+                        </section>
+                        <section class="section">
+                            <h3>Steps in Predictive Modeling</h3>
+                            <p>The process of predictive modeling involves several key steps:</p>
+                            <ol>
+                                <li><strong>Data Collection:</strong> Gather relevant and high-quality data that
+                                    will be used for training the model.</li>
+                                <li><strong>Data Preprocessing:</strong> Clean the data by handling missing values,
+                                    outliers, and scaling/transforming features.</li>
+                                <li><strong>Feature Selection and Engineering:</strong> Choose important features
+                                    and create new ones based on the data's characteristics.</li>
+                                <li><strong>Model Selection:</strong> Choose an appropriate machine learning
+                                    algorithm, such as regression, decision trees, or neural networks, depending on
+                                    the type of prediction (regression or classification).</li>
+                                <li><strong>Model Training:</strong> Use the training dataset to train the model and
+                                    adjust parameters to learn patterns in the data.</li>
+                                <li><strong>Model Evaluation:</strong> Evaluate the model's performance on a test
+                                    dataset to check how well it generalizes to new data.</li>
+                                <li><strong>Model Deployment:</strong> Deploy the model in a real-world scenario to
+                                    make predictions on new data.</li>
+                            </ol>
+                        </section>
+
+                        <section class="section">
+                            <h3>Types of Predictive Models</h3>
+                            <p>There are several types of predictive models used in machine learning, including:</p>
+                            <ul>
+                                <li><strong>Linear Regression:</strong> A statistical model that predicts a
+                                    continuous target variable based on one or more input features.</li>
+                                <li><strong>Logistic Regression:</strong> A classification model that predicts
+                                    binary outcomes (e.g.,yes/no, true/false) based on input features.</li>
+                                <li><strong>Decision Trees:</strong> A model that splits data into different
+                                    branches based on feature values, used for both classification and regression.
+                                </li>
+                                <li><strong>Random Forest:</strong> An ensemble model that builds multiple decision
+                                    trees and combines their predictions to improve accuracy.</li>
+                                <li><strong>Support Vector Machines (SVM):</strong> A model that finds the optimal
+                                    hyperplane that separates data into different classes in a high-dimensional
+                                    space.</li>
+                                <li><strong>Neural Networks:</strong> A deep learning model that uses multiple
+                                    layers of nodes to model complex relationships between features.</li>
+                            </ul>
+                            <p>We will be covering them in details in the next chapters.</p>
+                        </section>
+
+                        <section class="section">
+                            <h3>Evaluation Metrics in Predictive Modeling</h3>
+                            <p>Once a model is trained, it is important to evaluate its performance. Common
+                                evaluation metrics include:
+                            </p>
+                            <ul>
+                                <li><strong>Accuracy:</strong> The percentage of correctly classified instances in
+                                    the dataset.</li>
+                                <li><strong>Precision:</strong> The proportion of true positive predictions out of
+                                    all positive predictions.</li>
+                                <li><strong>Recall (Sensitivity):</strong> The proportion of true positives out of
+                                    all actual positive cases.</li>
+                                <li><strong>F1-Score:</strong> The harmonic mean of precision and recall, balancing
+                                    the two metrics.
+                                </li>
+                                <li><strong>Mean Absolute Error (MAE):</strong> The average of the absolute errors
+                                    between the predicted and actual values in regression problems.</li>
+                                <li><strong>Root Mean Squared Error (RMSE):</strong> The square root of the average
+                                    of squared differences between predicted and actual values in regression
+                                    problems.</li>
+                                <li><strong>Area Under the Curve (AUC) and ROC Curve:</strong> AUC represents the
+                                    ability of a classifier to distinguish between classes, while ROC plots true
+                                    positive rate versus false positive rate.</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Best Practices in Predictive Modeling</h3>
+                            <p>To build effective predictive models, consider the following best practices:</p>
+                            <ul>
+                                <li><strong>Understand the Problem:</strong> Carefully define the problem you are
+                                    trying to solve and ensure the model's output aligns with business objectives.
+                                </li>
+                                <li><strong>Feature Engineering:</strong> Spend time selecting and transforming
+                                    features, as they can greatly impact the performance of the model.</li>
+                                <li><strong>Avoid Overfitting:</strong> Use techniques like cross-validation and
+                                    regularization to prevent the model from memorizing the training data and
+                                    generalizing poorly to new data.</li>
+                                <li><strong>Model Tuning:</strong> Fine-tune the model's hyperparameters to find the
+                                    optimal configuration for better accuracy.</li>
+                                <li><strong>Evaluate with Multiple Metrics:</strong> Use a variety of metrics to
+                                    evaluate the model, especially when dealing with imbalanced data.</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content6" class="content-section">
+                        <h2>6. Quiz</h2>
+                        <fieldset>
+                            <legend>
+                                <h3>check your understandment</h3>
+                            </legend>
+                            <div>
+                                <h4>Choose the correct answer, removing useless data is part of:</h4>
+                                <select id="dropdown" required data-expected-answer="1">
+                                    <option value="">(select one)</option>
+                                    <option value="1">feature engineering</option>
+                                    <option value="2">data mining</option>
+                                    <option value="3">data cleaning</option>
+                                </select>
+                            </div>
+                            <div>
+                                <h4>Linear regression is a method of predictive modeling:</h4>
+                                <div>
+                                    <input type="radio" id="true" name="type" value="time"
+                                        data-expected-answer="true">True
+                                </div>
+                                <div>
+                                    <input type="radio" id="false" name="type" value="time">False
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Choose the correct answer(s), tools for data visualization in ML:</h4>
+                                <div>
+                                    <input type="checkbox" id="a1" data-expected-answer="false">Bargraphs
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a2" data-expected-answer="true">Matplotlib
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a3" data-expected-answer="true">Plotly
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p id="result"></p>
+                        <button type="submit" onclick="checkAnswers()">Submit</button>
+                    </div>
+                </div>
+                <script src="../script/js.js"></script>
+            </div>
+            <hr id="content-footer">
+        </section>
+
+        <section>
+            <div id="bottom">
+                <ul>
+                    <li><a href="chp1.html"><button id="bt">Chapter 1</button></a></li>
+                    <li><a href="home.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="chp3.html"><button id="bt">Chapter 3</button></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            &copy; <a href="../index.html">AI Academy</a><br />
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>

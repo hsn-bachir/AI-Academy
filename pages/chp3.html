@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Supervised Learning" />
+    <title>Supervised Learning</title>
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/pages.css">
+    <script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+    <style>
+        table {
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+            width: 500px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #070707;
+        }
+
+        th {
+            background-color: #0056b3;
+            color: white;
+        }
+
+        td {
+            background-color: #f2f2f2;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .data-split {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #0a0a23;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .data-split div {
+            width: 30%;
+            text-align: center;
+        }
+
+        .data-split div h4 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Chapter III</h1>
+        <nav>
+            <ul>
+                <li><a href="chp2.html">&lt; Previous </a></li>
+                <li><a href="chp4.html">Next &gt;</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="quote">
+                <p><i class="fas fa-quote-left"></i>The world provides data and labels, and from this labeled data we
+                    learn<i class="fas fa-quote-right"></i></p>
+                <p>— Sebastian Thrun</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div id="hamburger" onclick="toggleSidebar()">
+                    &#9776;
+                </div>
+                <nav class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="#course" onclick="showContent('content1');">1. Types of ML models</a></li>
+                        <li><a href="#course" onclick="showContent('content2');">2. Data Division</a></li>
+                        <li><a href="#course" onclick="showContent('content3');">3. Linear Regression</a></li>
+                        <li><a href="#course" onclick="showContent('content4');">4. KNN</a></li>
+                        <li><a href="#course" onclick="showContent('content5');">5. Normalization - Scaling</a></li>
+                        <li><a href="#course" onclick="showContent('content6');">6. Quiz</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <div id="content1" class="content-section">
+                        <h2>1. Types of Machine Learning Models</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Machine Learning Models</th>
+                                    <th>Parametric</th>
+                                    <th>Non-parametric</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Complexity</td>
+                                    <td>Fixed</td>
+                                    <td>Flexible</td>
+                                </tr>
+                                <tr>
+                                    <td>Adaptability</td>
+                                    <td>Low</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Feature Engineering</td>
+                                    <td>Limited</td>
+                                    <td>Effective</td>
+                                </tr>
+                                <tr>
+                                    <td>Overfitting</td>
+                                    <td>Possible</td>
+                                    <td>Less Prone</td>
+                                </tr>
+                                <tr>
+                                    <td>Training Efficiency</td>
+                                    <td>High</td>
+                                    <td>Lower</td>
+                                </tr>
+                                <tr>
+                                    <td>Capture Complex Relationships</td>
+                                    <td>Low</td>
+                                    <td>High</td>
+                                </tr>
+                                <tr>
+                                    <td>Interpretability</td>
+                                    <td>High</td>
+                                    <td>Lower</td>
+                                </tr>
+                                <tr>
+                                    <td>Examples</td>
+                                    <td>Linear Regression</td>
+                                    <td>Decision Tree</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="content2" class="content-section">
+                        <h2>2. Data Division in Supervised Machine Learning</h2>
+                        <p>In supervised learning, data is divided into different subsets to effectively train and
+                            evaluate the model. Each subset serves a distinct purpose, helping the model learn patterns
+                            and generalize to new data.</p>
+
+                        <div class="section">
+                            <h3>Data Splits</h3>
+                            <p>The most common way to divide data is into training, validation, and test sets. Here is a
+                                typical structure:
+                            </p>
+                            <div class="data-split">
+                                <div>
+                                    <h4>Training Set</h4>
+                                    <p>~70%</p>
+                                    <p>This subset is used to train the model, allowing it to learn from the labeled
+                                        examples.</p>
+                                </div>
+                                <div>
+                                    <h4>Validation Set</h4>
+                                    <p>~15%</p>
+                                    <p>This set helps in tuning the model's parameters and in preventing overfitting.
+                                    </p>
+                                </div>
+                                <div>
+                                    <h4>Test Set</h4>
+                                    <p>~15%</p>
+                                    <p>The final subset is used to assess the model's performance on unseen data.</p>
+                                </div>
+                            </div>
+
+                            <p>The following code example shows how to split data using Python's
+                                <code>train_test_split</code> function from the <code>sklearn.model_selection</code>
+                                library:
+                            </p>
+
+                            <div class="example">
+                                <code>
+                                    from sklearn.model_selection import train_test_split<br><br>
+                                    <span class="cmd"># Example dataset</span><br>
+                                    X = [...]  <span class="cmd"># Features</span><br>
+                                    y = [...]  <span class="cmd"># Labels</span><br><br>
+                                    <span class="cmd"># Split into training and test sets (80% train, 20% test)</span><br> 
+                                    X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.2, random_state=42)<br><br>
+                                    <span class="cmd"># Split the temporary set into validation and test sets (50% of 20% each)</span><br> 
+                                    X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
+                                </code>
+                            </div>
+
+                            <p>In this example:</p>
+                            <ul>
+                                <li>80% of the data is used for training.</li>
+                                <li>10% is used for validation.</li>
+                                <li>10% is used for testing.</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>Why Split Data?</h3>
+                            <p>Dividing data is essential to avoid overfitting, where a model performs well on training
+                                data but poorly on new data. By reserving a part of the data for testing, we ensure the
+                                model generalizes well to unseen data.
+                            </p>
+                        </div>
+
+                        <div class="section">
+                            <h3>Common Ratios</h3>
+                            <p>Data is typically split using the following ratios, though they may vary:</p>
+                            <ul>
+                                <li><strong>Training Set:</strong> 60%-80%</li>
+                                <li><strong>Validation Set:</strong> 10%-20%</li>
+                                <li><strong>Test Set:</strong> 10%-20%</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>K-Fold Cross-Validation</h3>
+                            <p><strong>K-Fold Cross-Validation</strong> is a technique for improving model reliability
+                                by dividing data into<code>k</code> subsets (folds). The model is trained and validated
+                                <code>k</code> times, each time using a different fold for validation and the remaining
+                                folds for training. This ensures that every data point is used for both training and
+                                validation.
+                            </p>
+
+                            <p>This approach is useful for small datasets, as it maximizes data use for training and
+                                testing. After <code>k</code> iterations, the average of all <code>k</code> results
+                                provides a more accurate evaluation of the model's performance.
+                            </p>
+
+                            <p>Here's how you can implement k-fold cross-validation in Python using <code>KFold</code>
+                                from <code>sklearn.model_selection</code>:
+                            </p>
+
+                            <div class="example">
+                                <code>
+                                    from sklearn.model_selection import KFold<br><br>
+                                    
+                                    <span class="cmd"># Example dataset</span><br>
+                                    X = [...]  <span class="cmd"># Features</span><br>
+                                    y = [...]  <span class="cmd"># Labels</span><br><br>
+                    
+                                    <span class="cmd"># Set up K-Fold with 5 splits</span><br>
+                                    kf = KFold(n_splits=5, shuffle=True, random_state=42)<br><br>
+                    
+                                    for train_index, val_index in kf.split(X):<br>
+                                        <span class="cmd"># Split data</span><br>
+                                        X_train, X_val = X[train_index], X[val_index]<br>
+                                        y_train, y_val = y[train_index], y[val_index]
+                                </code>
+                            </div>
+
+                            <p>In this example, k-fold cross-validation is performed with <code>5</code> folds.</p>
+                        </div>
+                    </div>
+                    <div id="content3" class="content-section">
+                        <h2>3. Linear Regression</h2>
+                        <div class="section">
+                            <h3>1. What is Linear Regression?</h3>
+                            <p>Linear Regression is a fundamental supervised learning algorithm used for predicting a
+                                continuous target variable based on one or more predictor variables. It attempts to
+                                establish a linear relationship between the input (independent variable) and the output
+                                (dependent variable) by fitting a straight line through the data.</p>
+
+                            <p>The general form of the linear regression equation is:</p>
+                            <span style="font-style: italic; color: #00539C;">y = w<sub>0</sub> + w<sub>1</sub>x</span>
+                            <ul>
+                                <li><strong>y:</strong> The target variable (dependent variable)</li>
+                                <li><strong>x:</strong> The input variable (independent variable)</li>
+                                <li><strong>w<sub>0</sub>:</strong> The intercept of the line</li>
+                                <li><strong>w<sub>1</sub>:</strong> The slope of the line</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>2. How Linear Regression Works</h3>
+                            <p>Linear Regression works by finding the best-fitting line through the data. The algorithm
+                                minimizes the difference between the predicted values and the actual values by
+                                calculating a measure called the <strong>Mean Squared Error (MSE)</strong>. The smaller
+                                the error, the better the line fits the data.
+                            </p>
+
+                            <p>The Mean Squared Error (MSE) is calculated as:</p>
+                            <span style="font-style: italic; color: #00539C;">MSE = (1/n) * Σ (y<sub>i</sub> -
+                                ŷ<sub>i</sub>)<sup>2</sup></span>
+                            <ul>
+                                <li><strong>n:</strong> The number of data points</li>
+                                <li><strong>y<sub>i</sub>:</strong> The actual value</li>
+                                <li><strong>ŷ<sub>i</sub>:</strong> The predicted value</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>3. Implementing Linear Regression in Python</h3>
+                            <p>Here's a basic example of how to perform Linear Regression in Python using
+                                <code>scikit-learn</code>:
+                            </p>
+
+                            <div class="example">
+                                <code>
+                                    <span class="cmd"># Import necessary libraries</span><br>
+                                    import numpy as np<br>
+                                    from sklearn.model_selection import train_test_split<br>
+                                    from sklearn.linear_model import LinearRegression<br>
+                                    from sklearn.metrics import mean_squared_error<br><br>
+                                    
+                                    <span class="cmd"># Generate some example data</span><br>
+                                    X = np.array([1, 2, 3, 4, 5]).reshape(-1, 1)  <span class="cmd"># Features (input variable)</span><br>
+                                    y = np.array([2, 4, 6, 8, 10])               <span class="cmd"># Target (output variable)</span><br><br>
+                    
+                                    <span class="cmd"># Split the data into training and test sets</span><br>
+                                    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)<br><br>
+                    
+                                    <span class="cmd"># Initialize the Linear Regression model</span><br>
+                                    model = LinearRegression()<br><br>
+                    
+                                    <span class="cmd"># Train the model</span><br>
+                                    model.fit(X_train, y_train)<br><br>
+                    
+                                    <span class="cmd"># Make predictions</span><br>
+                                    y_pred = model.predict(X_test)<br><br>
+                    
+                                    <span class="cmd"># Calculate Mean Squared Error</span><br>
+                                    mse = mean_squared_error(y_test, y_pred)<br>
+                                    print("Mean Squared Error:", mse)
+                                </code>
+                            </div>
+
+                            <p>This code demonstrates how to train a linear regression model, make predictions, and
+                                evaluate the model using Mean Squared Error (MSE).</p>
+                        </div>
+
+                        <div class="section">
+                            <h3>4. Applications of Linear Regression</h3>
+                            <p>Linear Regression is widely used in various fields such as:</p>
+                            <ul>
+                                <li><strong>Economics:</strong> Predicting sales, costs, and profits</li>
+                                <li><strong>Healthcare:</strong> Estimating patient outcomes based on clinical variables
+                                </li>
+                                <li><strong>Real Estate:</strong> Predicting housing prices based on location, size, and
+                                    features</li>
+                                <li><strong>Finance:</strong> Forecasting stock prices and other financial metrics</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="content4" class="content-section">
+                        <h2>4. K-Nearest Neighbors Algorithm</h2>
+                        <div class="section">
+                            <h3>1. What is K-Nearest Neighbors (KNN)?</h3>
+                            <p>The <strong>K-Nearest Neighbors (KNN)</strong> algorithm is a simple, non-parametric
+                                supervised learning
+                                algorithm used for classification and regression tasks. It classifies a data point based
+                                on the classes of
+                                its nearest neighbors. KNN is widely used because it’s easy to understand and implement.
+                            </p>
+                        </div>
+
+                        <div class="section">
+                            <h3>2. How KNN Works</h3>
+                            <p>The algorithm works by finding the <code>k</code> data points in the training set that
+                                are closest to a given point and assigning it the most common class label among those
+                                neighbors (for classification) or averaging their values (for regression).</p>
+
+                            <p>The "closeness" of data points is typically calculated using <strong>Euclidean
+                                    distance</strong>:</p>
+                            <span style="font-style: italic; color: #00539C;">Distance = √((x<sub>2</sub> -
+                                x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> - y<sub>1</sub>)<sup>2</sup> + ... )</span>
+
+                            <p>The <strong>value of K</strong> (the number of neighbors) is crucial and can impact the
+                                model's accuracy. If <code>K</code> is too low, the model may be sensitive to noise; if
+                                it's too high, the model may be too generalized.
+                            </p>
+                        </div>
+
+                        <div class="section">
+                            <h3>3. Implementing KNN in Python</h3>
+                            <p>Below is a basic example of how to use the KNN algorithm for classification in Python
+                                using <code>scikit-learn</code>:
+                            </p>
+
+                            <div class="example">
+                                <code>
+                                    <span class="cmd"># Import necessary libraries</span><br>
+                                    from sklearn.datasets import load_iris<br>
+                                    from sklearn.model_selection import train_test_split<br>
+                                    from sklearn.neighbors import KNeighborsClassifier<br>
+                                    from sklearn.metrics import accuracy_score<br><br>
+
+                                    <span class="cmd"># Load example dataset</span><br>
+                                    data = load_iris()<br>
+                                    X, y = data.data, data.target<br><br>
+
+                                    <span class="cmd"># Split the dataset into training and testing sets</span><br>
+                                    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)<br><br>
+
+                                    <span class="cmd"># Initialize the KNN classifier with k=3</span><br>
+                                    k = 3<br>
+                                    knn = KNeighborsClassifier(n_neighbors=k)<br><br>
+
+                                    <span class="cmd"># Train the classifier</span><br>
+                                    knn.fit(X_train, y_train)<br>
+
+                                    <span class="cmd"># Make predictions on the test set</span><br>
+                                    y_pred = knn.predict(X_test)<br>
+
+                                    <span class="cmd"># Calculate and print accuracy</span><br>
+                                    accuracy = accuracy_score(y_test, y_pred)<br>
+                                    print("Accuracy:", accuracy)
+                                </code>
+                            </div>
+
+                            <p>In this example:</p>
+                            <ul>
+                                <li>We use the <code>Iris</code> dataset, which contains measurements for different iris
+                                    flowers, classified into three species.</li>
+                                <li>The dataset is split into a training set and a test set using
+                                    <code>train_test_split</code>.
+                                </li>
+                                <li>The <code>KNeighborsClassifier</code> model with <code>K=3</code> is trained on the
+                                    training data and tested on the test data.</li>
+                                <li>The model's accuracy on the test set is then calculated using
+                                    <code>accuracy_score</code>.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>4. Choosing the Right K Value</h3>
+                            <p>The value of <code>K</code> in KNN is critical for optimal performance. Here are some
+                                guidelines:</p>
+                            <ul>
+                                <li><strong>Low values of K</strong> (e.g., <code>K=1</code>) can lead to overfitting
+                                    and sensitivity to noise.</li>
+                                <li><strong>Higher values of K</strong> provide smoother decision boundaries, but may
+                                    increase the risk of underfitting.</li>
+                                <li><strong>Common practice</strong> is to test multiple values of <code>K</code> and
+                                    choose the one that gives the highest validation accuracy.</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>5. Applications of KNN</h3>
+                            <p>KNN is used in various fields, including:</p>
+                            <ul>
+                                <li><strong>Medical Diagnosis:</strong> Classifying diseases based on patient symptoms
+                                </li>
+                                <li><strong>Recommendation Systems:</strong> Suggesting products based on customer
+                                    preferences</li>
+                                <li><strong>Image Recognition:</strong> Identifying objects or patterns in images</li>
+                                <li><strong>Banking:</strong> Detecting fraud by identifying anomalous transactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="content5" class="content-section">
+                        <h2>5. Normalization and Scaling in Machine Learning</h2>
+                        <div class="section">
+                            <h3>1. Why Use Normalization and Scaling?</h3>
+                            <p>In machine learning, features may have varying ranges and distributions. Some models are
+                                sensitive to these variations, which can impact the model's performance and convergence.
+                                Normalization and scaling are two preprocessing techniques that adjust feature values to
+                                bring them into a common range, improving model performance and stability.</p>
+                        </div>
+
+                        <div class="section">
+                            <h3>2. What is Normalization?</h3>
+                            <p>Normalization transforms features to a fixed range, typically [0, 1]. This technique is
+                                useful when the data has no significant outliers, and all values are relatively close.
+                                The formula for min-max normalization is:
+                            </p>
+                            <span style="font-style: italic; color:#00539C;"><strong>Normalized Value</strong> = (X -
+                                X<sub>min</sub>) / (X<sub>max</sub> -
+                                X<sub>min</sub>)</span>
+                            <ul>
+                                <li><strong>X:</strong> Original feature value</li>
+                                <li><strong>X<sub>min</sub>:</strong> Minimum value of the feature</li>
+                                <li><strong>X<sub>max</sub>:</strong> Maximum value of the feature</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>3. What is Scaling (Standardization)?</h3>
+                            <p>Scaling, or standardization, transforms data to have a mean of 0 and a standard deviation
+                                of 1. It is useful when data has outliers or follows a normal distribution. The formula
+                                for standardization is:</p>
+                            <span style="font-style: italic; color:#00539C;"><strong>Standardized Value</strong> = (X -
+                                μ) / &lambda;</span>
+                            <ul>
+                                <li><strong>X:</strong> Original feature value</li>
+                                <li><strong>μ:</strong> Mean of the feature</li>
+                                <li><strong>&lambda;:</strong> Standard deviation of the feature</li>
+                            </ul>
+                        </div>
+
+                        <div class="section">
+                            <h3>4. Implementing Normalization and Scaling in Python</h3>
+                            <p>Let's look at examples for applying normalization and scaling to data using
+                                <code>scikit-learn</code>:
+                            </p>
+
+                            <h3>Normalization</h3>
+                            <div class="example">
+                                <code>
+                                    from sklearn.preprocessing import MinMaxScaler<br>
+                                    import numpy as np<br><br>
+                    
+                                    <span class="cmd"># Sample data</span><br>
+                                    data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br><br>
+                    
+                                    <span class="cmd"># Initialize the scaler</span><br>
+                                    scaler = MinMaxScaler()<br><br>
+                    
+                                    <span class="cmd"># Apply normalization</span><br>
+                                    normalized_data = scaler.fit_transform(data)<br>
+                                    print("Normalized Data:\n", normalized_data)
+                                </code>
+                            </div>
+
+                            <h3>Scaling (Standardization)</h3>
+                            <div class="example">
+                                <code>
+                                    from sklearn.preprocessing import StandardScaler<br>
+                                    import numpy as np<br><br>
+                    
+                                    <span class="cmd"># Sample data</span><br>
+                                    data = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])<br>
+                    
+                                    <span class="cmd"># Initialize the scaler</span><br>
+                                    scaler = StandardScaler()<br><br>
+                    
+                                    <span class="cmd"># Apply scaling</span><br>
+                                    scaled_data = scaler.fit_transform(data)<br>
+                                    print("Scaled Data:\n", scaled_data)
+                                </code>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h3>5. When to Use Normalization vs. Scaling</h3>
+                            <p><strong>Normalization</strong> is generally used when you know your data falls within a
+                                fixed range or does not have outliers.</p>
+                            <p><strong>Scaling</strong> is useful for algorithms that assume normally distributed data,
+                                such as linear regression and logistic regression, or when data contains outliers.</p>
+                        </div>
+                    </div>
+                    <div id="content6" class="content-section">
+                        <h2>6. Quiz</h2>
+                        <fieldset>
+                            <legend>
+                                <h3>check your understandment</h3>
+                            </legend>
+                            <div>
+                                <h4>Choose the correct answer, find the best-fitting line through the data</h4>
+                                <select id="dropdown" required data-expected-answer="2">
+                                    <option value="">(select one)</option>
+                                    <option value="1">knn</option>
+                                    <option value="2">Linear Regression</option>
+                                    <option value="3">clustering</option>
+                                </select>
+                            </div>
+                            <div>
+                                <h4>In the K-Nearest Neighbors (KNN) algorithm, setting a very high k value can make the
+                                    model more sensitive to noise:</h4>
+                                <div>
+                                    <input type="radio" id="true" name="type" value="time"
+                                        data-expected-answer="false">True
+                                </div>
+                                <div>
+                                    <input type="radio" id="false" name="type" value="time">False
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Choose the correct answer(s), type(s) of ml models:</h4>
+                                <div>
+                                    <input type="checkbox" id="a1" data-expected-answer="true">parametric
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a2" data-expected-answer="false">classified
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a3" data-expected-answer="true">non-parametric
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p id="result"></p>
+                        <button type="submit" onclick="checkAnswers()">Submit</button>
+                    </div>
+                </div>
+                <script src="../script/js.js"></script>
+            </div>
+            <hr id="content-footer">
+        </section>
+
+        <section>
+            <div id="bottom">
+                <ul>
+                    <li><a href="chp2.html"><button id="bt">Chapter 2</button></a></li>
+                    <li><a href="home.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="chp4.html"><button id="bt">Chapter 4</button></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            &copy; <a href="../index.html">AI Academy</a><br />
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>

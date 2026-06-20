@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Information</title>
+    <link rel="stylesheet" href="../style/home.css">
+    <link rel="stylesheet" href="../style/contact.css">
+    <script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Machine learning</h1>
+        <nav id="nav">
+            <ul id="list">
+                <li class="li"><a href="../index.html">Home</a></li>
+                <li class="li"><a href="#container">Contact</a></li>
+                <li class="li"><a href="#feedback">Feedback</a></li>
+            </ul>
+            <i class="fas fa-chevron-down" id="arrowdown" onclick="togglelist()"></i>
+            <i class="fas fa-chevron-up" id="arrowup" onclick="togglelist()"></i>
+            <script src="../script/js.js"></script>
+        </nav>
+    </header>
+
+    <div class="title" id="container">
+        <h1>Contact Us</h1>
+        <hr>
+    </div>
+
+    <div class="boxes">
+        <div class="box" id="box1">
+            <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+            <hr>
+            <p>Lebanon<br><br>Baabda, UA University</p>
+        </div>
+
+        <div class="box">
+            <h3><i class="fas fa-envelope"></i> Email</h3>
+            <hr>
+            <p>202310343@ua.edu.lb</p>
+            <p>202311037@ua.edu.lb</p>
+        </div>
+
+        <div class="box" id="box1">
+            <h3><i class="fas fa-phone"></i> Number</h3>
+            <hr>
+            <p>+961 3 077 006</p>
+            <p>+961 70 913 064</p>
+        </div>
+
+        <div class="box">
+            <h3><i class="fab fa-instagram"></i> Instagram</h3>
+            <hr>
+            <p><a href="https://www.instagram.com/hsn_bachir/profilecard/?igsh=cml6eWplNzc5NHMz" id="insta">link to our
+                    instagram account</a></p>
+        </div>
+    </div>
+
+    <div class="title" id="feedback">
+        <h1>Submit Feedback</h1>
+        <hr>
+    </div>
+
+    <div id="feedback">
+        <form method="POST" action="http://localhost:3000/send-feedback" target="_blank">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="hasan" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="enter your text here..."
+                    required></textarea>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <address>
+            &copy; <a href="../index.html">AI Academy</a><br />
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>

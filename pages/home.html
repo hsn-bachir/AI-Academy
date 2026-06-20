@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Machine learning Course" />
+    <title>Machine Learning Course</title>
+    <link rel="stylesheet" href="../style/home.css" />
+    <script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Machine learning</h1>
+        <nav id="nav">
+            <ul id="list">
+                <li class="li"><a href="#req">REQUISITES</a></li>
+                <li class="li"><a href="#course">COURSE</a></li>
+                <li class="li"><a href="#res">RESOURCES</a></li>
+            </ul>
+            <i class="fas fa-chevron-up" id="arrowup" onclick="togglelist()"></i>
+            <i class="fas fa-chevron-down" id="arrowdown" onclick="togglelist()"></i>
+        </nav>
+    </header>
+
+    <main>
+
+        <section>
+            <h2 id="req">requirements</h2>
+            <div class="container1">
+                <div class="folder">
+                    <h4>MATHEMATICS</h4>
+                    <ul>
+                        <li>Linear Algebra</li>
+                        <li>Probability and Statistics</li>
+                        <li>Calculus</li>
+                    </ul>
+                </div>
+                <div class="folder">
+                    <h4>SKILLS</h4>
+                    <ul>
+                        <li>Hardware and software knowledge</li>
+                        <li>Problem Solving</li>
+                        <li>Persistence and Iteration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 id="course">COURSE</h2>
+            <div class="container">
+                <div id="hamburger" class="hamburger" onclick="toggleSidebar()">
+                    &#9776;
+                </div>
+                <nav class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="#course" onclick="showContent('content1');">Chapter 1 - python </a></li>
+                        <li><a href="#course" onclick="showContent('content2');">Chapter 2 - data</a></li>
+                        <li><a href="#course" onclick="showContent('content3');">Chapter 3 - supervised</a></li>
+                        <li><a href="#course" onclick="showContent('content4');">Chapter 4 - unsupervised</a></li>
+                        <li><a href="#course" onclick="showContent('content5');">Chapter 5 - deep</a></li>
+                        <li><a href="#course" onclick="showContent('content6');">Diabetes Detector</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <div id="content1" class="content-section">
+                        <h2>1. Machine-learning with python</h2>
+                        <p>To start with, the definetion of machine learning is the act of teaching a computer how to
+                            perform a task without explicitly programming it to accomplish this task. In ML, we feed
+                            data into an algorithm and gradually improve the outcome with experience. Technically, it's
+                            a mathematical algorithm that outputs a prediction.
+                        </p>
+                        <img src="../img/x-y.png" alt="ml model functionality" width="250px" height="164px">
+                        <p>Along side the course we are going to be building up our
+                            <span style="color: #0a0a23; font-weight: bold;"> DIABETES DETECTOR ML MODEL</span> using
+                            python programming langauge.
+                        </p>
+                        <p> You can access <a href="chp1.html">Chapter I: Python ,from here</a></p>
+                    </div>
+                    <div id="content2" class="content-section">
+                        <h2>2. What is Data Science?</h2>
+                        <p>Us as humans, when learning we search for tutor, books, or researches... In other words we
+                            need data to learn from. Data science is the study of data to extract meaningful insights,
+                            it's about using scientific methods, processes, algorithms, and systems to extract knowledge
+                            and insights from data. You can consider it as the preparational step for building our ML
+                            model.</p>
+                        <img src="../img/data.jpg" alt="data science" width="300px" height="200px">
+                        <p>You can access <a href="chp2.html">Chapter II: Data Science ,from here</a></p>
+                    </div>
+                    <div id="content3" class="content-section">
+                        <h2>3. What is Supervised learning?</h2>
+                        <p>Now after preparing the dataset, it is time to train, test, then emhance the model. These
+                            three steps are done by different ways, one of them is supervised learning</p>
+                        <img src="../img/supervised.jpg" alt="supervised learning" height="153px" width="150px">
+                        <p>Supervised machine learning algorithms learn from labeled data and we know what output to
+                            expect! In other words it is done with the interferance of human bieng.</p>
+                        <p>You can access <a href="chp3.html">Chapter III: Supervised Learning ,from here</a></p>
+                    </div>
+                    <div id="content4" class="content-section">
+                        <h2>4. What is Unsupervised learning?</h2>
+                        <img src="../img/unsupervised.jpg" alt="unsupervised learning" height="145px" width="150px">
+                        <p>Another way of model training is unsupervised learning, it is giving the algorithm unlabled
+                            data and based on features; the algorithm learns patterns on its own. Lets take this example
+                        </p>
+                        <img src="../img/example1.jpg" alt="fruits dataset" height="150px" width="158px">
+                        <p>If you are trying to sort the fruits it the above picture, you can sort them based on color,
+                            shape, or some features like having a leaf or not. This is what unsupervised learning does.
+                        </p>
+                        <p>You can access <a href="chp4.html">Chapter IV: Unsupervised Learning ,from here</a></p>
+                    </div>
+                    <div id="content5" class="content-section">
+                        <h2>5. What is Deep earning?</h2>
+                        <p>Deep learning is a subset of machine learning, which is itself a part of artificial
+                            intelligence. It mimics the way humans learn and process information.</p>
+                        <img src="../img/deep.jpg" alt="deep learning" width="150px" height="130px">
+                        <p>Deep learning is especially powerful for tasks involving large datasets and complex
+                            patterns, such as image and speech recognition, natural language processing, and autonomous
+                            driving. The key strength of deep learning is its ability to automatically learn
+                            representations from data without the need for manual feature extraction.
+                        </p>
+                        <p>You can access <a href="chp5.html">Chapter V: Deep Learning ,from here</a></p>
+                    </div>
+                    <div id="content6" class="content-section">
+                        <h2>6. Diabetes Detector ML Model</h2>
+                        <p>Now after getting to know all of the essentials, it is time to build our diabetes detector
+                            model </p>
+                        <img src="../img/robot.jpg" alt="diabetes detector model" width="400px" height="328px">
+                        <p>You can access <a href="our-model.html">Diabetes Detector model ,from here</a></p>
+                    </div>
+                </div>
+            </div>
+            <hr id="content-footer">
+        </section>
+        <script src="../script/js.js"></script>
+
+        <section>
+            <h2 id="res">Machine Learning Resources</h2>
+            <div class="resource-category">
+                <h3>Books</h3>
+                <ul>
+                    <li><a href="https://www.oreilly.com/library/view/hands-on-machine-learning/9781492032632/"
+                            target="_blank">Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow</a> - by
+                        Aurélien Géron</li>
+                    <li><a href="https://www.springer.com/gp/book/9783030230144" target="_blank">Pattern Recognition and
+                            Machine Learning</a> - by Christopher M. Bishop</li>
+                    <li><a href="https://www.amazon.com/Deep-Learning-Adaptive-Computation-Machine/dp/0262035618"
+                            target="_blank">Deep Learning</a> - by Ian Goodfellow, Yoshua Bengio, Aaron Courville</li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h3>Websites</h3>
+                <ul>
+                    <li><a href="https://www.coursera.org" target="_blank">Coursera - Machine Learning Courses</a></li>
+                    <li><a href="https://www.kaggle.com" target="_blank">Kaggle - Data Science & Machine Learning
+                            Competitions</a></li>
+                    <li><a href="https://www.tensorflow.org" target="_blank">TensorFlow - Official Website</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h3>Tutorials</h3>
+                <ul>
+                    <li><a href="https://www.datacamp.com/courses/intro-to-machine-learning-with-python"
+                            target="_blank">Intro to Machine Learning with Python - DataCamp</a></li>
+                    <li><a href="https://towardsdatascience.com/a-complete-guide-to-machine-learning-algorithms-6e857063e90e"
+                            target="_blank">A Complete Guide to Machine Learning Algorithms - Towards Data Science</a>
+                    </li>
+                    <li><a href="https://www.freecodecamp.org/news/learn-machine-learning-with-python/"
+                            target="_blank">Learn Machine Learning with Python - freeCodeCamp</a></li>
+                </ul>
+            </div>
+
+            <div class="resource-category">
+                <h3>Courses</h3>
+                <ul>
+                    <li><a href="https://www.udacity.com/course/intro-to-machine-learning-with-pytorch--ud188"
+                            target="_blank">Intro to Machine Learning with PyTorch - Udacity</a></li>
+                    <li><a href="https://www.edx.org/course/machine-learning-with-python-a-practical-intro"
+                            target="_blank">Machine Learning with Python: A Practical Introduction - edX</a></li>
+                    <li><a href="https://www.fast.ai" target="_blank">Practical Deep Learning for Coders - fast.ai</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <address>
+            &copy; <a href="../index.html">AI Academy</a><br>
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>

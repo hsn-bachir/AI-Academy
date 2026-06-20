@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Unsupervised Learning" />
+    <title>Unsupervised Learning</title>
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/pages.css">
+    <script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+    <style>
+        .section {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Chapter IV</h1>
+        <nav>
+            <ul>
+                <li><a href="chp3.html">&lt; Previous </a></li>
+                <li><a href="chp5.html">Next &gt;</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="quote">
+                <p><i class="fas fa-quote-left"></i>learning isn't just about answers — it's about discovering the right
+                    questions hidden within the data.<i class="fas fa-quote-right"></i></p>
+                <p>— Yoshua Bengio</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div id="hamburger" onclick="toggleSidebar()">
+                    &#9776;
+                </div>
+                <nav class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="#course" onclick="showContent('content1');">1. Clustering Algorithms</a></li>
+                        <li><a href="#course" onclick="showContent('content2');">2. Dimensionality Reduction</a></li>
+                        <li><a href="#course" onclick="showContent('content3');">3. Association Algorithms</a></li>
+                        <li><a href="#course" onclick="showContent('content4');">4. Tools and Libraries</a></li>
+                        <li><a href="#course" onclick="showContent('content5');">5. Challenges and Limitations</a></li>
+                        <li><a href="#course" onclick="showContent('content6');">6. Quiz</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <div id="content1" class="content-section">
+                        <h2>1. Clustering Algorithms</h2>
+                        <section class="section">
+                            <h3>K-Means Clustering</h3>
+                            <p>K-Means is a popular clustering algorithm that divides data into <strong>K</strong>
+                                clusters. It aims to minimize the distance between data points and the centroid of their
+                                assigned cluster. It's efficient but requires specifying the number of clusters in
+                                advance.</p>
+                            <ul>
+                                <li>Good for large datasets</li>
+                                <li>Sensitive to the initial placement of centroids</li>
+                                <li>Commonly used in customer segmentation</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Hierarchical Clustering</h3>
+                            <p>Hierarchical clustering builds a tree-like structure of clusters, which allows you to
+                                visualize how data points relate to each other. It can be either
+                                <strong>agglomerative</strong> (bottom-up) or <strong>divisive</strong> (top-down).
+                            </p>
+                            <ul>
+                                <li>No need to specify the number of clusters initially</li>
+                                <li>Useful for small datasets due to computational complexity</li>
+                                <li>Results can be visualized using dendrograms</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</h3>
+                            <p>DBSCAN is a density-based algorithm that groups points closely packed together, marking
+                                points in low-density regions as outliers. This is useful for discovering clusters of
+                                arbitrary shape and for dealing with noisy data.</p>
+                            <ul>
+                                <li>Does not require the number of clusters as input</li>
+                                <li>Robust against noise and outliers</li>
+                                <li>Ideal for spatial data analysis</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content2" class="content-section">
+                        <h2>2. Dimensionality Reduction Algorithms</h2>
+                        <section class="section">
+                            <h3>Principal Component Analysis (PCA)</h3>
+                            <p>PCA is a technique used to reduce the dimensionality of large datasets by transforming
+                                them into a smaller set of principal components. These components capture the maximum
+                                variance in the data, allowing for effective data visualization and noise reduction.</p>
+                            <ul>
+                                <li>Commonly used for data visualization and preprocessing</li>
+                                <li>Reduces computation time by lowering the number of dimensions</li>
+                                <li>Useful in applications like image compression and feature extraction</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>t-Distributed Stochastic Neighbor Embedding (t-SNE)</h3>
+                            <p>t-SNE is a technique for visualizing high-dimensional data by embedding it in a
+                                low-dimensional space. It captures local similarities and is ideal for data exploration,
+                                especially in fields like image clustering and natural language processing.</p>
+                            <ul>
+                                <li>Effective for visualizing complex datasets in 2D or 3D</li>
+                                <li>Maintains local structure of data, making it suitable for exploratory analysis</li>
+                                <li>Widely used in applications like gene expression data and image clustering</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content3" class="content-section">
+                        <h2>3. Association Algorithms</h2>
+                        <section class="section">
+                            <h3>Apriori Algorithm</h3>
+                            <p>The Apriori algorithm is used to find frequent itemsets in large datasets and is
+                                fundamental in association rule mining. It operates by identifying frequent individual
+                                items and expanding them to larger itemsets based on minimum support and confidence
+                                thresholds.</p>
+                            <ul>
+                                <li>Commonly used in market basket analysis to identify products frequently bought
+                                    together</li>
+                                <li>Uses a "bottom-up" approach to build frequent itemsets</li>
+                                <li>Effective for finding relationships in transactional data</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>FP-Growth (Frequent Pattern Growth)</h3>
+                            <p>The FP-Growth algorithm is an efficient alternative to Apriori for mining frequent
+                                itemsets. It avoids the costly generation of candidate sets by using a compact data
+                                structure called the FP-tree, making it faster on large datasets.</p>
+                            <ul>
+                                <li>Uses an FP-tree structure to store itemsets, reducing the need for multiple scans
+                                </li>
+                                <li>Faster and more scalable than Apriori for large datasets</li>
+                                <li>Widely applied in recommendation systems and retail analysis</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content4" class="content-section">
+                        <h2>4. Popular Tools and Libraries</h2>
+                        <section style="margin-bottom: 40px;">
+                            <h3>Scikit-Learn</h3>
+                            <p>Scikit-Learn is a popular Python library that provides a range of tools for data mining,
+                                including several unsupervised learning algorithms like K-Means, PCA, and DBSCAN.</p>
+                            <p><strong>Example: K-Means Clustering</strong></p>
+                            <div class="example">
+                                <code>
+                                    import numpy as np<br>
+                                    from sklearn.cluster import KMeans<br><br>
+                                    data = np.array([[1, 2], [1, 4], [1, 0], [4, 2], [4, 4], [4, 0]])<br>
+                                    kmeans = KMeans(n_clusters=2, random_state=0).fit(data)<br>
+                                    print(kmeans.labels_)<br>
+                                </code>
+                            </div>
+                        </section>
+
+                        <section style="margin-bottom: 40px;">
+                            <h3>TensorFlow</h3>
+                            <p>TensorFlow, primarily known for deep learning, also supports unsupervised learning models
+                                and embeddings. It's often used for high-dimensional clustering and dimensionality
+                                reduction.</p>
+                            <p><strong>Example: Autoencoder for Dimensionality Reduction</strong></p>
+                            <div class="example">
+                                <code>
+                                    import tensorflow as tf<br>
+                                    from tensorflow.keras.models import Sequential<br>
+                                    from tensorflow.keras.layers import Dense<br><br>
+                                    <span class="cmd"># Define a simple autoencoder model</span><br>
+                                    autoencoder = Sequential([<br>
+                                        Dense(64, activation='relu', input_shape=(784,)),<br>
+                                        Dense(32, activation='relu'),<br>
+                                        Dense(64, activation='relu'),<br>
+                                        Dense(784, activation='sigmoid')<br>
+                                    ])<br>
+                                    autoencoder.compile(optimizer='adam', loss='binary_crossentropy')<br>
+                                </code>
+                            </div>
+                        </section>
+
+                        <section style="margin-bottom: 40px;">
+                            <h3>NLTK (Natural Language Toolkit)</h3>
+                            <p>NLTK is a library for working with human language data, and it includes tools for topic
+                                modeling and clustering text data, commonly used in unsupervised NLP tasks.</p>
+                            <p><strong>Example: K-Means Clustering for Text Data</strong></p>
+                            <div class="example">
+                                <code>
+                                    from nltk.tokenize import word_tokenize<br>
+                                    from sklearn.feature_extraction.text import TfidfVectorizer<br>
+                                    from sklearn.cluster import KMeans<br><br>
+                                    documents = ["Text data clustering example", "Clustering text data using K-Means", "Unsupervised text clustering"]<br>
+                                    vectorizer = TfidfVectorizer()<br>
+                                    X = vectorizer.fit_transform(documents)<br>
+                                    kmeans = KMeans(n_clusters=2, random_state=0).fit(X)<br>
+                                    print(kmeans.labels_)<br>
+                                </code>
+                            </div>
+                        </section>
+
+                        <section style="margin-bottom: 40px;">
+                            <h3>PyTorch</h3>
+                            <p>PyTorch is a deep learning framework that also supports unsupervised learning techniques,
+                                often used for feature learning with autoencoders or GANs.</p>
+                            <p><strong>Example: Simple Autoencoder in PyTorch</strong></p>
+                            <div class="example">
+                                <code>
+                                    import torch<br>
+                                    import torch.nn as nn<br><br>
+                                    class Autoencoder(nn.Module):<br>
+                                        def __init__(self):<br>
+                                            super(Autoencoder, self).__init__()<br>
+                                            self.encoder = nn.Sequential(<br>
+                                                nn.Linear(784, 128),<br>
+                                                nn.ReLU(),<br>
+                                                nn.Linear(128, 32)<br>
+                                            )<br>
+                                            self.decoder = nn.Sequential(<br>
+                                                nn.Linear(32, 128),<br>
+                                                nn.ReLU(),<br>
+                                                nn.Linear(128, 784),<br>
+                                                nn.Sigmoid()<br>
+                                            )<br>
+                                        def forward(self, x):<br>
+                                            x = self.encoder(x)<br>
+                                            x = self.decoder(x)<br>
+                                            return x<br>
+                                    autoencoder = Autoencoder()<br>
+                                </code>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="content5" class="content-section">
+                        <h2>5. Challenges and Limitations</h2>
+                        <section class="section">
+                            <h3>Evaluation Without Labels</h3>
+                            <p>In unsupervised learning, the lack of labeled data makes it difficult to assess model
+                                accuracy. Without ground truth labels, alternative metrics like the silhouette score or
+                                cluster validation indexes must be used, but these are often indirect and limited in
+                                effectiveness.</p>
+                            <ul>
+                                <li>Indirect evaluation methods may lead to ambiguous results</li>
+                                <li>Metrics may not accurately represent real-world performance</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Determining the Optimal Number of Clusters</h3>
+                            <p>Deciding the number of clusters can be challenging in clustering algorithms. Methods like
+                                the elbow method or silhouette score help, but the results are not always clear,
+                                especially with complex or overlapping data.</p>
+                            <ul>
+                                <li>Over- or under-clustering can lead to misleading groupings</li>
+                                <li>Requires domain expertise to interpret results accurately</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Interpretability of Results</h3>
+                            <p>Clustering and dimensionality reduction techniques group data based on abstract features,
+                                making it challenging to interpret what each cluster or reduced dimension represents,
+                                especially in high-dimensional data.</p>
+                            <ul>
+                                <li>Difficulty in extracting meaningful insights</li>
+                                <li>May hinder decision-making if results are too abstract</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Sensitivity to Noise and Outliers</h3>
+                            <p>Some unsupervised learning algorithms, like K-means, are sensitive to noise and outliers,
+                                which can distort clustering results or create artificial groups. Methods like DBSCAN
+                                handle outliers better but may still struggle with high levels of noise.</p>
+                            <ul>
+                                <li>Outliers can significantly impact algorithm performance</li>
+                                <li>Noisy data may lead to incorrect or irrelevant clusters</li>
+                            </ul>
+                        </section>
+
+                        <section class="section">
+                            <h3>Scalability and Computational Cost</h3>
+                            <p>Algorithms like hierarchical clustering are computationally intensive and may not scale
+                                well for large datasets. Dimensionality reduction techniques, though useful, can also be
+                                computationally costly for high-dimensional data.</p>
+                            <ul>
+                                <li>High computational requirements for large datasets</li>
+                                <li>May require specialized hardware for efficiency</li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content6" class="content-section">
+                        <h2>6. Quiz</h2>
+                        <fieldset>
+                            <legend>
+                                <h3>check your understandment</h3>
+                            </legend>
+                            <div>
+                                <h4>Choose the correct answer, PCA technique belongs to</h4>
+                                <select id="dropdown" required data-expected-answer="2">
+                                    <option value="">(select one)</option>
+                                    <option value="1">Clustering Algorithms</option>
+                                    <option value="2">Dimensionality Reduction</option>
+                                    <option value="3">Association Algorithms</option>
+                                </select>
+                            </div>
+                            <div>
+                                <h4>Deciding the number of clusters can be challenging:</h4>
+                                <div>
+                                    <input type="radio" id="true" name="type" value="time"
+                                        data-expected-answer="true">True
+                                </div>
+                                <div>
+                                    <input type="radio" id="false" name="type" value="time">False
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Choose the correct answer(s), Some tools of unsupervised learning are</h4>
+                                <div>
+                                    <input type="checkbox" id="a1" data-expected-answer="false">KNN
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a2" data-expected-answer="true">Scikit-Learn
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a3" data-expected-answer="false">computer vision
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p id="result"></p>
+                        <button type="submit" onclick="checkAnswers()">Submit</button>
+                    </div>
+                </div>
+                <script src="../script/js.js"></script>
+            </div>
+            <hr id="content-footer">
+        </section>
+
+        <section>
+            <div id="bottom">
+                <ul>
+                    <li><a href="chp3.html"><button id="bt">Chapter 3</button></a></li>
+                    <li><a href="../index.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="chp5.html"><button id="bt">Chapter 5</button></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            &copy; <a href="../index.html">AI Academy</a><br />
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>

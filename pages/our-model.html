@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Diabetes Detector Machine Learning Model" />
+    <title>Diabetes Detector</title>
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/pages.css" />
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table th,
+        table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+        }
+
+        .diabetes {
+            background-color: #ffe4e1;
+        }
+
+        .no-diabetes {
+            background-color: #e1ffe4;
+        }
+    </style>
+</head>
+
+<link rel="stylesheet" href="../style/pages.css">
+<script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Chapter VI</h1>
+        <nav>
+            <ul>
+                <li><a href="chp5.html">&lt; Previous </a></li>
+                <li><a href="contact.html">Next &gt;</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="quote">
+                <p><i class="fas fa-quote-left"></i>Machine learning is the last invention that humanity will ever need
+                    to make.<i class="fas fa-quote-right"></i></p>
+                <p>— Nick Bostrom</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div id="hamburger" onclick="toggleSidebar()">
+                    &#9776;
+                </div>
+                <nav class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="#course" onclick="showContent('content1');">1. Data set</a></li>
+                        <li><a href="#course" onclick="showContent('content2');">2. Data cleaning</a></li>
+                        <li><a href="#course" onclick="showContent('content3');">3. Data analysis</a></li>
+                        <li><a href="#course" onclick="showContent('content4');">4. Model deployment</a></li>
+                        <li><a href="#course" onclick="showContent('content5');">5. Testing results</a></li>
+                        <li><a href="#course" onclick="showContent('content6');">6. Full code</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <div id="content1" class="content-section">
+                        <h2>1. Choosing data set</h2>
+                        <p>The <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">Diabetes Dataset</a>
+                            is a popular machine learning dataset derived from the Pima Indians Diabetes Database. It is
+                            used to predict the presence of diabetes in individuals based on diagnostic measurements.
+                        </p>
+
+                        <h3>Dataset Features</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Pregnancies</td>
+                                    <td>Number of times the patient has been pregnant.</td>
+                                </tr>
+                                <tr>
+                                    <td>Glucose</td>
+                                    <td>Plasma glucose concentration after a 2-hour oral glucose tolerance test.</td>
+                                </tr>
+                                <tr>
+                                    <td>Blood Pressure</td>
+                                    <td>Diastolic blood pressure (mm Hg).</td>
+                                </tr>
+                                <tr>
+                                    <td>Skin Thickness</td>
+                                    <td>Triceps skinfold thickness (mm).</td>
+                                </tr>
+                                <tr>
+                                    <td>Insulin</td>
+                                    <td>2-hour serum insulin (mu U/ml).</td>
+                                </tr>
+                                <tr>
+                                    <td>BMI</td>
+                                    <td>Body Mass Index, defined as weight in kg/(height in m)^2.</td>
+                                </tr>
+                                <tr>
+                                    <td>DiabetesPedigreeFunction</td>
+                                    <td>Likelihood of diabetes based on family history.</td>
+                                </tr>
+                                <tr>
+                                    <td>Age</td>
+                                    <td>Age of the patient (years).</td>
+                                </tr>
+                                <tr>
+                                    <td>Outcome</td>
+                                    <td>Target variable (1 = Diabetes, 0 = No Diabetes).</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Applications</h3>
+                        <div class="example">
+                            <ul>
+                                <li>Predicting diabetes using machine learning models.</li>
+                                <li>Feature engineering and exploring data relationships.</li>
+                                <li>Practicing data preprocessing, such as handling missing values.</li>
+                                <li>Evaluating models with metrics like accuracy and ROC-AUC.</li>
+                            </ul>
+                        </div>
+
+                        <h3>Challenges</h3>
+                        <div class="example">
+                            <p>The dataset presents some challenges, such as:</p>
+                            <ul>
+                                <li>Imbalanced data between diabetic and non-diabetic outcomes.</li>
+                                <li>Handling invalid or missing values (e.g., 0 in Glucose, Blood Pressure).</li>
+                                <li>Exploring correlations between features like BMI and Insulin.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="content2" class="content-section">
+                        <h2>2. Cleaning the data</h2>
+                        <p>To clean the data, we refered to the experts to get the range of each feature so that we can
+                            discard special cases that will affect the precision of the model.</p>
+                        <p>Normally,when cleaning extraordinary values, these latter are replaced by the mean value or
+                            the average of the feature.But since this data set is medical set, which is sensitive
+                            information, we will be dropping the whole row of a wrong data, luckily this data is somehow
+                            cleaned so not alot rows will be dropped</p>
+                        <p>
+                            here below the code for cleaning this data set:
+                        </p>
+                        <div class="example">
+                            <code>
+                                def vglc(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=300 <span class="cmd"># return true if the value is between 0 and 300</span><br>
+                                def vbld(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=300 <span class="cmd"># float function is used to assure the value is natural number</span><br>
+                                def vskin(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=60<br>
+                                def vinsulin(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=500<br>
+                                def vbmi(v):<br>
+                                &nbsp;&nbsp;return 10<=float(v)<=60<br>
+                                def vdpf(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=3<br>
+                                def vage(v):<br>
+                                &nbsp;&nbsp;return 21<=float(v)<=120<br>
+                                def vprg(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=20<br><br>
+
+                                def flt(nb):<br>
+                                &nbsp;&nbsp;try:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;float(nb)<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+                                &nbsp;&nbsp;except ValueError:<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;return False<br><br>
+
+
+                                for i, row in data.iterrows():<br>
+                                                            &nbsp;&nbsp;if not vprg(row['Pregnancies']) or not
+                                                            flt(row['Pregnancies']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i) <br>
+                                                            &nbsp;&nbsp;elif not vglc(row['Glucose']) or not flt(row['Glucose']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vbld(row['BloodPressure']) or not
+                                                            flt(row['BloodPressure']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vskin(row['SkinThickness']) or not
+                                                            flt(row['SkinThickness']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vinsulin(row['Insulin']) or not flt(row['Insulin']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vbmi(row['BMI']) or not flt(row['BMI']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vdpf(row['DiabetesPedigreeFunction']) or not flt(row['DiabetesPedigreeFunction']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vage(row['Age']) or not flt(row['Age']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br><br>
+
+
+                                data.drop(indices_to_drop, axis=0, inplace=True) <span class="cmd"># drop all rows in the list</span>
+                            </code>
+                        </div>
+                    </div>
+                    <div id="content3" class="content-section">
+                        <h2>3. Analyzing the data</h2>
+                        <p>The <a href="https://www.kaggle.com/datasets/mathchi/diabetes-data-set">data set</a> chosen
+                            is already visually analyzed in the site, These visualizations shows that all features are
+                            important factors in detecting diabetes.</p>
+                        <p>Here is addition analysis:</p>
+                        <div class="example">
+                            <code>
+                                lookup={1:"have diabetes",0:"no diabetes"} <span class="cmd"># change the values to corresponding string</span>
+                                temp=data["Outcome"].apply(lambda x: lookup.get(x))
+                                results=temp.value_counts()
+                                plt.pie(results.values, labels=results.index)
+                                plt.title("diabetes results")
+                                plt.show()
+                            </code>
+                        </div>
+                        <p>Here's the pie chart:</p>
+                        <img src="../img/Figure_1.jpg" alt="diabetes_pie_chart" width="400px" height="400px">
+                    </div>
+                    <div id="content4" class="content-section">
+                        <h2>4. Deploying the model</h2>
+                        <p>To deploy the model we used supervised learning since we have to classified groups
+                            <code>have diabetes, and do not have</code>
+                        </p>
+                        <h2>Why Use RandomForestClassifier?</h2>
+                        <p>The RandomForestClassifier is a powerful and versatile machine learning algorithm. Here are
+                            the key reasons why it is widely used:</p>
+                        <ul>
+                            <li><strong>Handles High Dimensionality:</strong> Works effectively with datasets having
+                                many features.</li>
+                            <li><strong>Reduces Overfitting:</strong> Combines multiple decision trees to create a more
+                                generalizable model.
+                            </li>
+                            <li><strong>Robust to Missing Data:</strong> Can handle missing values and outliers
+                                effectively.</li>
+                            <li><strong>Provides Feature Importance:</strong> Helps understand which features contribute
+                                the most to
+                                predictions.</li>
+                            <li><strong>Versatility:</strong> Works for both binary and multi-class classification
+                                problems.</li>
+                            <li><strong>Captures Nonlinear Relationships:</strong> Handles complex relationships between
+                                features and the
+                                target variable.</li>
+                            <li><strong>Scalability:</strong> Can be parallelized for large datasets.</li>
+                        </ul>
+                        <p>By combining the predictions of multiple decision trees, the RandomForestClassifier provides
+                            a balance of accuracy, robustness, and interpretability, making it a popular choice in
+                            machine learning.
+                        </p>
+                        <div class="example">
+                            <code>
+                                from sklearn.model_selection import train_test_split<br>
+                                from sklearn.model_selection import cross_val_score,KFold<br>
+                                from sklearn.ensemble import RandomForestClassifier<br><br>
+
+                                x=data.drop("Outcome",axis=1)<span class="cmd"># save all features to x</span><br>
+                                y=data["Outcome"]<span class="cmd"># save the outcome to y</span><br>
+                                xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.2, random_state=42)<br>
+                                model= RandomForestClassifier()<br>
+                                kf=KFold(n_splits=5,shuffle=True,random_state=42)<br>
+                                scores=cross_val_score(model,xtrain,ytrain,cv=kf,scoring='accuracy')<br><br>
+
+                                print("cross-validation scores: ",scores)<br>
+                                print("accuracy: ",scores.mean())<br><br>
+
+                                model.fit(xtrain,ytrain)<span class="cmd"># Deploying the model</span>
+                            </code>
+                        </div>
+                    </div>
+                    <div id="content5" class="content-section">
+                        <h2>5. Testing results</h2>
+                        <p>The values down are provided by chatgpt to test the results:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Label</th>
+                                    <th>Pregnancies</th>
+                                    <th>Glucose</th>
+                                    <th>Blood Pressure</th>
+                                    <th>Skin Thickness</th>
+                                    <th>Insulin</th>
+                                    <th>BMI</th>
+                                    <th>DPF</th>
+                                    <th>Age</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="diabetes">
+                                    <td>1 (Diabetes)</td>
+                                    <td>4</td>
+                                    <td>160</td>
+                                    <td>82</td>
+                                    <td>35</td>
+                                    <td>180</td>
+                                    <td>32.1</td>
+                                    <td>0.673</td>
+                                    <td>45</td>
+                                </tr>
+                                <tr class="diabetes">
+                                    <td>1 (Diabetes)</td>
+                                    <td>6</td>
+                                    <td>195</td>
+                                    <td>90</td>
+                                    <td>25</td>
+                                    <td>210</td>
+                                    <td>34.5</td>
+                                    <td>1.2</td>
+                                    <td>52</td>
+                                </tr>
+                                <tr class="no-diabetes">
+                                    <td>0 (No Diabetes)</td>
+                                    <td>1</td>
+                                    <td>85</td>
+                                    <td>70</td>
+                                    <td>15</td>
+                                    <td>85</td>
+                                    <td>23.4</td>
+                                    <td>0.489</td>
+                                    <td>30</td>
+                                </tr>
+                                <tr class="no-diabetes">
+                                    <td>0 (No Diabetes)</td>
+                                    <td>2</td>
+                                    <td>95</td>
+                                    <td>76</td>
+                                    <td>20</td>
+                                    <td>110</td>
+                                    <td>25.6</td>
+                                    <td>0.320</td>
+                                    <td>38</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>Here are the results of our model:</p>
+                        <img src="../img/test1.jpg" alt="diabetes-test-result" height="192px" width="400px">
+                        <img src="../img/test2.jpg" alt="diabetes-test-result" height="164px" width="400px">
+                    </div>
+                    <div id="content6" class="content-section">
+                        <h2>6. Full Code</h2>
+                        <div class="example">
+                            <code>
+                                <span class="cmd"># import needed libraries</span><br>
+                            import pandas as pd<br>
+                            from sklearn.model_selection import train_test_split<br>
+                            from sklearn.model_selection import cross_val_score, KFold<br>
+                            from sklearn.ensemble import RandomForestClassifier<br><br>
+
+                            <span class="cmd"># load data</span><br>
+                            data=pd.read_csv("C:\\Users\\<span class="cmd">path_to</span>\\datasheet.csv")<br>
+                            indices_to_drop = []<br><br>
+
+                            <span class="cmd"># prepare the functions for validation</span><br>
+                            def vglc(v):<br>
+                            &nbsp;&nbsp;return 0<=float(v)<=300<br>
+                                def vbld(v):<br>
+                                &nbsp;&nbsp;return 0<=float(v)<=300<br>
+                                    def vskin(v):<br>
+                                    &nbsp;&nbsp;return 0<=float(v)<=60<br>
+                                        def vinsulin(v):<br>
+                                        &nbsp;&nbsp;return 0<=float(v)<=500<br>
+                                            def vbmi(v):<br>
+                                            &nbsp;&nbsp;return 10<=float(v)<=60<br>
+                                                def vdpf(v):<br>
+                                                &nbsp;&nbsp;return 0<=float(v)<=3<br>
+                                                    def vage(v):<br>
+                                                    &nbsp;&nbsp;return 21<=float(v)<=120<br>
+                                                        def vprg(v):<br>
+                                                        &nbsp;&nbsp;return 0<=float(v)<=20<br><br>
+
+                                                            def flt(nb):<br>
+                                                            &nbsp;&nbsp;try:<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;float(nb)<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;return True<br>
+                                                            &nbsp;&nbsp;except ValueError:<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;return False<br><br>
+
+                                                            <span class="cmd"># drop the rows</span><br>
+                                                            for i, row in data.iterrows():<br>
+                                                            &nbsp;&nbsp;if not vprg(row['Pregnancies']) or not
+                                                            flt(row['Pregnancies']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i) <br>
+                                                            &nbsp;&nbsp;elif not vglc(row['Glucose']) or not flt(row['Glucose']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vbld(row['BloodPressure']) or not
+                                                            flt(row['BloodPressure']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vskin(row['SkinThickness']) or not
+                                                            flt(row['SkinThickness']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vinsulin(row['Insulin']) or not flt(row['Insulin']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vbmi(row['BMI']) or not flt(row['BMI']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vdpf(row['DiabetesPedigreeFunction']) or not flt(row['DiabetesPedigreeFunction']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br>
+                                                            &nbsp;&nbsp;elif not vage(row['Age']) or not flt(row['Age']):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;indices_to_drop.append(i)<br><br>
+
+                                                            <span class="cmd"># train and deploy the model</span><br>
+                                                            data.drop(indices_to_drop, axis=0, inplace=True)
+                                                            x=data.drop("Outcome",axis=1)<br>
+                                                            y=data["Outcome"]<br>
+                                                            xtrain,xtest,ytrain,ytest=train_test_split(x,y,test_size=0.2,
+                                                            random_state=42)<br>
+                                                            model= RandomForestClassifier()<br>
+                                                            kf=KFold(n_splits=5,shuffle=True,random_state=42)<br>
+                                                            scores=cross_val_score(model,xtrain,ytrain,cv=kf,scoring='accuracy')<br><br>
+
+                                                            print("cross-validation scores: ",scores)<br>
+                                                            print("accuracy: ",scores.mean())<br><br>
+
+                                                            model.fit(xtrain,ytrain)<br><br>
+                                                            <span class="cmd"># take input from user and validate
+                                                                it</span><br>
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;prg=input("pregnancies: ")<br>
+                                                            &nbsp;&nbsp;if flt(prg) and vprg(prg):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;glc=input("glucose: ")<br>
+                                                            &nbsp;&nbsp;if flt(glc) and vglc(glc):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;bld=input("blood pressure: ")<br>
+                                                            &nbsp;&nbsp;if flt(bld) and vbld(bld):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;skin=input("skin thickness: ")<br>
+                                                            &nbsp;&nbsp;if flt(skin) and vskin(skin):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;insulin=input("insulin: ")<br>
+                                                            &nbsp;&nbsp;if flt(insulin) and vinsulin(insulin):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;bmi=input("bmi: ")<br>
+                                                            &nbsp;&nbsp;if flt(bmi) and vbmi(bmi):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;dpf=input("dpf: ")<br>
+                                                            &nbsp;&nbsp;if flt(dpf) and vdpf(dpf):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            while(True):<br>
+                                                            &nbsp;&nbsp;age=input("age (above 21): ")<br>
+                                                            &nbsp;&nbsp;if flt(age) and vage(age):<br>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;break<br>
+                                                            &nbsp;&nbsp;print("enter a valid input")<br><br>
+
+                                                            <span class="cmd"># add the input to the data sheet and run
+                                                                the model</span><br>
+                                                            feature_names=x.columns<br>
+                                                            ans=pd.DataFrame([[prg,glc,bld,skin,insulin,bmi,dpf,age]],columns=feature_names)<br>
+                                                            prediction=model.predict(ans)<br>
+                                                            prediction_prob=model.predict_proba(ans)<br><br>
+
+                                                            <span class="cmd"># Display the results</span><br>
+                                                            if prediction:<br>
+                                                            &nbsp;&nbsp;print("you have diabetes, prediction prob:
+                                                            ",prediction_prob[0][1]*100, " %")<br>
+                                                            else:<br>
+                                                            &nbsp;&nbsp;print("you don't have diabetes, prediction prob:
+                                                            ",prediction_prob[0][0]*100, " %")<br>
+                                                            </code>
+                        </div>
+                    </div>
+                </div>
+                <script src="../script/js.js"></script>
+            </div>
+            <hr id="content-footer">
+        </section>
+
+        <section>
+            <div id="bottom">
+                <ul>
+                    <li><a href="chp5.html"><button id="bt">Chapter 5</button></a></li>
+                    <li><a href="../index.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="contact.html"><button id="bt">Contact us</button></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            &copy; <a href="../index.html">AI Academy</a><br />
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>

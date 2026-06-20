@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Python Course" />
+    <title>Python Learning Course</title>
+    <link rel="stylesheet" href="../style/home.css" />
+    <link rel="stylesheet" href="../style/pages.css" />
+    <script src="https://kit.fontawesome.com/3d7cd03105.js" crossorigin="anonymous"></script>
+    <style>
+        .section {
+            margin-left: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #cccccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <a href="../index.html"><img src="../img/logo2.1.svg" alt="ai-logo" width="52px" height="40px"></a>
+        <h1>Chapter I</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">&lt; Previous</i></a></li>
+                <li><a href="chp2.html">Next &gt;</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div class="quote">
+                <p><i class="fas fa-quote-left"></i>The best way to get started is to quit talking and begin doing.<i
+                        class="fas fa-quote-right"></i></p>
+                <p>— Walt Disney</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div id="hamburger" onclick="toggleSidebar()">
+                    &#9776;
+                </div>
+                <nav class="sidebar" id="sidebar">
+                    <ul>
+                        <li><a href="#course" onclick="showContent('content1');">1. Basics</a></li>
+                        <li><a href="#course" onclick="showContent('content2');">2. Conditions</a></li>
+                        <li><a href="#course" onclick="showContent('content3');">3. Loops</a></li>
+                        <li><a href="#course" onclick="showContent('content4');">4. Functions</a></li>
+                        <li><a href="#course" onclick="showContent('content5');">5. Libraries</a></li>
+                        <li><a href="#course" onclick="showContent('content6');">6. Quiz</a></li>
+                    </ul>
+                </nav>
+                <div class="content">
+                    <div id="content1" class="content-section">
+                        <h2>1. Python Basics</h2>
+                        <section class="section">
+                            <h3>Variables</h3>
+                            <p>To start with, variables are space created in memory to be either filled by
+                                programmer or
+                                users and manipulated all along the code
+                            </p>
+                            <p>Data types of varibles:
+                            <ul>
+                                <li><strong>Integer:</strong> includes all whole numbers <code>23, -4, 7...</code>
+                                </li>
+                                <li><strong>Float:</strong> include all integers and decimal numbers
+                                    <code>23.2, -4.48, 5.0...</code>
+                                </li>
+                                <li><strong>String:</strong> set of charcters, should be entered between ""
+                                    <code>"this is ML course"...</code>
+                                </li>
+                                <li><strong>Boolean:</strong> can have 2 values only, true or false</li>
+                            </ul>
+                            </p>
+                            <p>Variables are initialized by entering its name followed by = then its value
+                                <code>x = 23</code>
+                            </p>
+                        </section>
+                        <section class="section">
+                            <h3>Input and output</h3>
+                            <p>A way to assign a value to the variable is by leting the user enter it using the
+                                function
+                                input
+                            <div class="example">
+                                <code>x=input("enter a value: ")</code>
+                            </div>
+                            </p>
+                            <p>On the other hand, inorder to display the value of the variable use function print
+                            <div class="example">
+                                <code>
+                                    x=23 <br>
+                                    print(x) <span class="cmd">#displays 23</span>
+                                </code>
+                            </div>
+                            </p>
+                            <p>You can display set of variables in one print using format function, we added{}as a
+                                placeholder to each variable we want to add in itsspecificlocation, we wrote f at
+                                the
+                                beginning of the print function, we added the variables inside {}! Note that because
+                                we are writing on a new line, we need an extra f at the beginning of each line.
+                                Otherwise, one f is enough!
+                            <div class="example">
+                                <code>
+                                    name = "Alice"<br>
+                                    age = 23<br>
+                                    dob = 2000<br>
+                                    print(f"Hello {name}, you are {age} years old."<br>
+                                    f"You are born in {dob})<br><br>
+                                    <span class="cmd">#displays Hello Alice, you are 23 years old.<br>
+                                    #You are born in 2000</span>
+                                </code>
+                            </div>
+                            </p>
+
+                        </section>
+                        <section class="section">
+                            <h3>Operators</h3>
+                            <p>Operators are symbols used to perform operations on variables and values. We have +
+                                for
+                                addition, - for substracion, * for multiplication, and much more!
+                            </p>
+                            <div class="example">
+                                <code>
+                                    a= 2**3<br>
+                                    b= 3*4<br>
+                                    c= 5+6<br>
+                                    print(a,", ",b,",",c)<br><br>
+                                    <span class="cmd">#displays 8, 12, 11</span>
+                                </code>
+                            </div>
+                            <p>These operators are used to update the value of the variables
+                                <code>x+=1 <span class="cmd">#=>x=x+1</span></code> wich
+                                update the value of x by 1 <code>x = 23 + 1</code>
+                            </p>
+                            <p>Note to be aware to the type of vraible, where you can't increment
+                                <code>x="23"</code>(string) by 1
+                            </p>
+                        </section>
+                        <section class="section">
+                            <h3>Lists</h3>
+                            <p>Lists are ordered collections of items that can be of any data type, including
+                                strings.
+                            </p>
+                            <p>It is written in this form: <code>l = ["hello", 23, True, ...]</code></p>
+                            <p>Note that the positions in the lists starts with 0, such that
+                                <code>[0]="hello", l[1]=23...</code>
+                            </p>
+                            <p>Some functions used in lists are:
+                            <ul>
+                                <li><strong>append():</strong> adds an item to the end of the list</li>
+                                <li><strong>insert():</strong> adds an item at a specific position in the list</li>
+                                <li><strong>remove():</strong> removes an item from the list</li>
+                                <li><strong>len():</strong> computes the length of the list</li>
+                            </ul>
+                            </p>
+                        </section>
+                        <br>
+                        <p><span style="font-weight: bold;">This is a brief explanation, you can explore more
+                                watching this youtube video</span>
+                        <div class="video-container">
+                            <iframe src="https://www.youtube.com/embed/rfscVS0vtbw?rel=0" width="560" height="315"
+                                frameborder="0" allowfullscreen
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        </div>
+                        </p>
+                    </div>
+                    <div id="content2" class="content-section">
+                        <h2>2. Conditions</h2>
+                        <section class="section">
+                            <h3>Can Python Decide?</h3>
+                            <p>Let's say you have 2 groups of friends one is going to football match other to
+                                cinema.Both events will occur on the same day and at the same time, so you cannot go
+                                at both events together. So now you need to choose 1 of the groups, for that you
+                                need
+                                something to help in this decision! Luckily, you like one activity more than the
+                                other
+                                one!<br>
+                                So if you like football more you will go with group 1 else with group 2.
+                            </p>
+                            <p>Conditional statements allow you to execute different code based on certain
+                                conditions
+                                using <code>if</code>, <code>elif</code>, and <code>else</code> keywords.
+                            </p>
+                            <div class="example">
+                                <code>
+                                    x = 10<br>
+                                    if x > 5:<br>
+                                        &nbsp;&nbsp;print("x is greater than 5")<br>
+                                    elif x == 5:<br>
+                                        &nbsp;&nbsp;print("x is equal to 5")<br>
+                                    else:<br>
+                                        &nbsp;&nbsp;print("x is less than 5")<br>
+                                    <span class="cmd">#prints x is greater than 5</span>
+                                </code>
+                            </div>
+                        </section>
+                        <section class="section">
+                            <h3>If Condition</h3>
+                            <p>If statements are used when we only have 1 condition to check.
+                                If this condition is met, we do the needed work and move on to other statements.
+                                If this condition is not met, we continue with other statements without changing
+                                anything, as if the statements for the condition true did not exist.
+                            </p>
+                            <div class="example">
+                                <code>
+                                    gender = input("enter your gender: ")<br>
+                                    if gender == "male":<br>
+                                    &nbsp;&nbsp;print("Hello, Mr.")<br><br>
+                                    <span class="cmd">#if the user enters male then this sentence will be displayed, else nothing happens</span>
+                                </code>
+                            </div>
+                        </section>
+                        <section class="section">
+                            <h3>Else Condition</h3>
+                            <p>If-else statements are used when we only have 1 condition to check but 2 outcomes.
+                                If the condition is true, we do the if code, and if the condition is false, we do
+                                the
+                                else code.
+                            </p>
+                            <div class="example">
+                                <code>
+                                    gender = input("enter your gender: ")<br>
+                                    if gender == "male":<br>
+                                    &nbsp;&nbsp;print("Hello, Mr.")<br>
+                                    else:<br>
+                                    &nbsp;&nbsp;print("Hello, Ms.")<br><br>
+                                    <span class="cmd">#if the user enters male then "Hello, Mr." will be displayed, else "Hello, Ms." is displayed</span>
+                                </code>
+                            </div>
+                        </section>
+                        <section class="section">
+                            <h3>Elif Condition</h3>
+                            <p>If-elif statements are used when we have more than 1 condition to check.
+                                Since we have more than 1 condition, we should check each condition until one of
+                                them is
+                                true, after that, we end the process.
+                            </p>
+                            <div class="example">
+                                <code>
+                                        gender = input("enter your gender: ")<br>
+                                        if gender == "male":<br>
+                                        print("Hello, Mr.")<br>
+                                        elif gender == "female":<br>
+                                        print("Hello, Ms.")<br>
+                                        else:<br>
+                                        print("Hello, unknown gender")<br><br>
+                                        <span class="cmd">#if the user enters male then "Hello, Mr." will be
+                                            displayed, if the user enters female then "Hello, Ms." will be displayed, else "
+                                            "Hello, unknown gender" will be displayed</span>
+                                    </code>
+                            </div>
+                            <p>Here is a flow chart for if-elif statments:</p>
+                            <img src="../img/if.jpg" alt="if-elif-diagram" height="321px" width="400px">
+                        </section>
+                        <section class="section">
+                            <h3>Operators</h3>
+                            <p>Operators are used to perform operations on conditions. There are several types of
+                                operators in Python, including:</p>
+                            <table>
+                                <tr>
+                                    <th>op</th>
+                                    <th>meaning</th>
+                                    <th>true</th>
+                                    <th>false</th>
+                                </tr>
+                                <tr>
+                                    <td>==</td>
+                                    <td>equal</td>
+                                    <td>2 == 2</td>
+                                    <td>2 == 3</td>
+                                </tr>
+                                <tr>
+                                    <td>!=</td>
+                                    <td>not equal</td>
+                                    <td>3 != 2</td>
+                                    <td>2 != 2</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;</td>
+                                    <td>less than</td>
+                                    <td>2 &lt; 13</td>
+                                    <td>2 &lt; 2</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;=</td>
+                                    <td>less than or equal</td>
+                                    <td>2 &lt;= 2</td>
+                                    <td>3 &lt;= 2</td>
+                                </tr>
+                                <tr>
+                                    <td>&gt;</td>
+                                    <td>greater than</td>
+                                    <td>13 &gt; 2</td>
+                                    <td>2 &gt; 13</td>
+                                </tr>
+                                <tr>
+                                    <td>&gt;=</td>
+                                    <td>greater than or equal</td>
+                                    <td>3 &gt;= 2</td>
+                                    <td>2 &gt;= 3</td>
+                                </tr>
+                            </table>
+                        </section>
+                        <section class="section">
+                            <h3>Combine Conditions</h3>
+                            <p>Conditions can be combined using logical operators. There are three types of logical
+                                operators in
+                                Python:
+                            </p>
+                            <ul>
+                                <li>
+                                    <strong>and: </strong><code>&&</code>
+                                    <div class="example">
+                                        <code>
+                                        x = 23<br>
+                                        if x &gt; 13 && x &lt; 20:<br>
+                                        print("x is between 13 and 25")<br><br>
+                                        <span class="cmd">#doesn't print anything since not both conditions are
+                                            satisfied</span>
+                                        </code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>or: </strong><code>||</code>
+                                    <div class="example">
+                                        <code>
+                                        x = 23<br>
+                                        if x &gt; 13 || x == 11:<br>
+                                        &nbsp;&nbsp;print("x is accepted")<br><br>
+                                        <span class="cmd">#prints "x is accepted" since at leat 1 condition is
+                                            satisfied</span>
+                                        </code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>not: </strong><code>!</code>
+                                    <div class="example">
+                                        <code>
+                                        x = 23<br>
+                                        if x &gt; 13 && not x &lt; 20:<br>
+                                        &nbsp;&nbsp;print("x is greater 20")<br><br>
+                                        <span class="cmd">#prints "x is greater 20" since both conditions
+                                            satisfied</span>
+                                        </code>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content3" class="content-section">
+                        <h2>3. Loops</h2>
+                        <p>Loops in Python are used to repeat actions multiple times. The most common types of loops are
+                            <code>for</code> loops and <code>while</code> loops.
+                        </p>
+                        <section class="section">
+                            <h3>For loops</h3>
+                            <p>The <code>for</code> loop iterates over a sequence like range:</p>
+                            <div class="example">
+                                <code>
+                                for i in range(5):<br>
+                                &nbsp;&nbsp;print(i)  <span class="cmd"> # Outputs 0 to 4</span>
+                            </code>
+                            </div>
+
+                        </section>
+                        <section class="section">
+                            <h3>For each loops</h3>
+                            <p>The <code>for each</code> loop iterates over lists:</p>
+                            <div class="example">
+                                <code>
+                                l = ["hello", 23, True, ...]<br>
+                                for i in l:<br>
+                                &nbsp;&nbsp;print(i)<br><br>
+                                <span class="cmd"> # Outputs hello, 23, True</span>
+                            </code>
+                            </div>
+                        </section>
+                        <section class="section">
+                            <h3>While loops</h3>
+                            <p>The <code>while</code> loop continues as long as a condition is <code>True</code>:
+                            </p>
+                            <div class="example">
+                                <code>
+                                count = 0<br>
+                                while count < 5:<br>
+                                &nbsp;&nbsp;print(count)<br>
+                                &nbsp;&nbsp;count += 1  <span class="cmd"> # Increment count</span><br><br>
+                                <span class="cmd"> # Outputs 0 to 4</span>
+                                </code>
+                            </div>
+                        </section>
+                    </div>
+                    <div id="content4" class="content-section">
+                        <h2>4. Functions</h2>
+                        <section class="section">
+                            <p>Functions are holders for a set of code for easier usability, so instead of writing the
+                                same code all over again, you just call the function. To make it easy for developer,
+                                build-in functions were developed like <code>print(), len()...</code>
+                            </p>
+                            <p>
+                                All programming languages have some build in functions and most importantly, they offer
+                                you the option for you to build your own function too!
+                            </p>
+                            <p>
+                                2 main concepts in functions are:
+                            </p>
+                            <ul>
+                                <li><strong>Input</strong> - what the function needs to work properly</li>
+                                <li><strong>Output</strong> - what the function returns</li>
+                            </ul>
+                        </section>
+                        <section class="section">
+                            <p>The steps of writing the function is:</p>
+                            <ol>
+                                <li>Write the def keyword</li>
+                                <li>Write the function name</li>
+                                <li>Define in () the parameters (if needed)</li>
+                                <li>Write our needed code</li>
+                                <li>Add a return keyword at the end if needed</li>
+                                <li>Next to the return word, add the value
+                                    <div class="example">
+                                        <code>
+                                            def <strong>Function_name</strong> (input 1,input 2,...,input n&nbsp;<span class="cmd">#if needed</span>):<br>
+                                            &nbsp;&nbsp;<span class="cmd">#code</span><br>
+                                            &nbsp;&nbsp;return output&nbsp;&nbsp;<span class="cmd">#if needed</span><br><br>
+                                        </code>
+                                    </div>
+                                </li>
+                            </ol>
+                        </section>
+                        <section class="section">
+                            <h3>2 types of functions</h3>
+                            <ul>
+                                <li>
+                                    <strong>Procedure function:</strong> also called as void function, it is a function
+                                    with no return value where it just compute some steps. It is used when same steps
+                                    are repeated all over again.
+                                    <div class="example">
+                                        <code>
+                                    def aboutme(name,age):<br>
+                                    &nbsp;&nbsp;print("My name is ", name ," and I am ", str(age)," years old")<br><br>
+                                    about(hasan,23)<span class="cmd"> #calling the void</span>
+                                </code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <strong>Return function:</strong> also called as value function, it is a function
+                                    with return value where it compute some steps and return a value. It is used when we
+                                    need to use the return value in our main code.
+                                    <div class="example">
+                                        <code>
+                                    def add(a,b):<br>
+                                    &nbsp;&nbsp;return a+b<br><br>
+                                    print(add(6,17))<span class="cmd">#calling the value<br>#displays 23</span>
+                                </code>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content5" class="content-section">
+                        <h2>5. Libraries</h2>
+                        <section class="section">
+                            <p>Python has a vast ecosystem of libraries that extend its functionality. Libraries can be
+                                imported using the <code>import</code> statement. Here's how you can use the
+                                <code>math</code> library:
+                            </p>
+                            <div class="example">
+                                <code>
+                        import math<br>
+                        print(math.sqrt(16))  <span class="cmd"># Outputs: 4.0</span>
+                        </code>
+                            </div>
+                            <p>Other popular libraries include <code>numpy</code> for numerical calculations,
+                                <code>pandas</code> for data manipulation, and <code>matplotlib</code> for data
+                                visualization. In this course we will be using Pandas and Matplotlib
+                            </p>
+                        </section>
+                        <section class="section">
+                            <ul>
+                                <li>
+                                    <h3>Importing Files with Pandas</h3>
+                                    <code>Pandas</code> is a powerful library for data analysis in Python. You can
+                                    easily
+                                    import
+                                    various file types, such as CSV, Excel, and JSON, using Pandas.<br>
+                                    To import a CSV file, use the <code>read_csv()</code> function:
+                                    <div class="example">
+                                        <code>import pandas as pd<br>
+                                data = pd.read_csv('filename.csv')<br>
+                                print(data.head())</code>
+                                    </div>
+                                    This code reads the file <code>filename.csv</code> and displays the first five rows
+                                    using
+                                    <code>head()</code>.
+                                </li>
+                                <li>
+                                    <h3>Diagnosing Data with Pandas</h3>
+                                    Use the <code>info()</code> method to get a summary of the data, including data
+                                    types
+                                    and
+                                    null values:
+                                    <div class="example">
+                                        <code>data.info()</code>
+                                    </div>
+                                    To find out how many null values each column has, use the <code>isnull()</code> and
+                                    <code>sum()</code> methods:
+                                    <div class="example">
+                                        <code>data.isnull().sum()</code>
+                                    </div>
+                                    The <code>describe()</code> method provides a summary of statistics for numerical
+                                    columns:
+                                    <div class="example">
+                                        <code>data.describe()</code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h3>Introduction to Matplotlib</h3>
+                                    <code>Matplotlib</code>is a popular library for creating visualizations in Python.
+                                    It
+                                    works
+                                    well with Pandas and helps in visualizing trends, patterns, and relationships within
+                                    data.<br>
+                                    To create a simple line plot, first import Matplotlib:
+                                    <div class="example">
+                                        <code>import matplotlib.pyplot as plt</code>
+                                    </div>
+                                    Now, let's create a basic line plot:
+                                    <div class="example">
+                                        <code>
+                                plt.plot([1, 2, 3, 4], [10, 20, 25, 30])<br>
+                                plt.title('Sample Line Plot')<br>
+                                plt.xlabel('X-axis Label')<br>
+                                plt.ylabel('Y-axis Label')<br>
+                                plt.show()
+                                </code>
+                                    </div>
+                                    You can use Matplotlib to plot data directly from a Pandas DataFrame:
+                                    <div class="example">
+                                        <code>
+                                data['column_name'].plot(kind='hist')<br>
+                                plt.title('Histogram of Column')<br>
+                                plt.show()
+                                </code>
+                                    </div>
+                                    A bar plot is useful for comparing categories. Here's an example:
+                                    <div class="example">
+                                        <code>
+                                categories = ['A', 'B', 'C']<br>
+                                values = [5, 7, 3]<br>
+                                plt.bar(categories, values)<br>
+                                plt.title('Bar Plot Example')<br>
+                                plt.xlabel('Category')<br>
+                                plt.ylabel('Values')<br>
+                                plt.show()
+                                </code>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div id="content6" class="content-section">
+                        <h2>6. Quiz</h2>
+                        <fieldset>
+                            <legend>
+                                <h3>check your understandment</h3>
+                            </legend>
+                            <div>
+                                <h4>Choose the correct answer, loops till the condition is false</h4>
+                                <select id="dropdown" required data-expected-answer="3">
+                                    <option value="">(select one)</option>
+                                    <option value="1">for loop</option>
+                                    <option value="2">for each loop</option>
+                                    <option value="3">while loop</option>
+                                </select>
+                            </div>
+                            <div>
+                                <h4>Pandas is used for data analysis:</h4>
+                                <div>
+                                    <input type="radio" id="true" name="type" value="time"
+                                        data-expected-answer="true">True
+                                </div>
+                                <div>
+                                    <input type="radio" id="false" name="type" value="time">False
+                                </div>
+                            </div>
+                            <div>
+                                <h4>Choose the correct answer(s), x='a'; x+=1 <=> ??</h4>
+                                <div>
+                                    <input type="checkbox" id="a1" data-expected-answer="true">error
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a2" data-expected-answer="false">"b"
+                                </div>
+                                <div>
+                                    <input type="checkbox" id="a3" data-expected-answer="false">"a1"
+                                </div>
+                            </div>
+                        </fieldset>
+                        <p id="result"></p>
+                        <button type="submit" onclick="checkAnswers()">Submit</button>
+                    </div>
+                </div>
+                <script src="../script/js.js"></script>
+            </div>
+            <hr id="content-footer">
+        </section>
+
+        <section>
+            <div id="bottom">
+                <ul>
+                    <li><a href="home.html"><button id="bt">Course</button></a></li>
+                    <li><a href="home.html"><i class="fas fa-home"></i></a></li>
+                    <li><a href="chp2.html"><button id="bt">Chapter 2</button></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            <a href="../index.html">AI Academy</a><br />
+            <a href="contact.html">contact us</a><br>
+            UA University
+        </address>
+    </footer>
+
+</body>
+
+</html>
